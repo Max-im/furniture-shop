@@ -154,6 +154,15 @@ export default {
     &__flag{
       margin: 0 5px 0 0;
     }
+    &__contactsList{
+      .fa{
+        font-size: 18px;
+        line-height: 7px;
+        color: #828282;
+        position: relative;
+        top: 3px;
+      }
+    }
   }
 
   .fa{
