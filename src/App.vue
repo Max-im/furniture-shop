@@ -2,7 +2,7 @@
 
   <header class="header">
     <topLineBlock></topLineBlock>
-    
+    <mixBlock></mixBlock>
   </header>
 
 
@@ -13,6 +13,10 @@
 <script>
 
 import topLineBlock from './components/topLineBlock.vue';
+import mixBlock from './components/mixBlock.vue';
+
+
+
 export default {
   name: 'app',
   data () {
@@ -21,7 +25,8 @@ export default {
     }
   },
    components: {
-    topLineBlock
+    topLineBlock,
+    mixBlock
   }
 }
 </script>
@@ -80,8 +85,8 @@ q:before, q:after, blockquote:before, blockquote:after {
 a img {
   border: none;
 }
-a{
-  outline: none;
+a, input, button{
+  outline: none !important;
   text-decoration: none;
 }
 
@@ -89,7 +94,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-
+body{
+  font-family: 'Raleway', sans-serif;
+}
 
 
 .container{
@@ -101,12 +108,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   padding: 0 15px;
 }
 
+
 .flex{
   display: flex;
 }
 
 .hide{
   display: none;
+}
+
+
+
+
+
+
+
+ /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .container{
+    padding: 0;
+  }
+
 }
 
 </style>

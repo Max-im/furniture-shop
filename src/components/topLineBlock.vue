@@ -87,7 +87,7 @@ export default {
 
   .topLine{
     border-bottom: 1px solid #ddd;
-    font-family: 'Raleway', sans-serif;
+    
     font-size: 12px;
     &__container{
       display: flex;
@@ -163,18 +163,18 @@ export default {
         top: 3px;
       }
     }
-  }
-
-  .fa{
-    margin: 0 5px 0 0;
-    &-caret-down{
-      margin: 0 0 0 5px;
+    .fa{
+      margin: 0 5px 0 0;
+      &-caret-down{
+        margin: 0 0 0 5px;
+      }
     }
-  }
-  
-  b{
-    font-weight: 800;
-    text-transform: uppercase;
+    
+    b{
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
   }
 
 

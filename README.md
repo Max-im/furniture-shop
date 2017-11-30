@@ -27,7 +27,7 @@
 
 ## __Run the App__
  - for start the project in develop mode:   
-  `npm run dev`
+  `npm run start`
  - for build production version:      
   `npm run build`
 
