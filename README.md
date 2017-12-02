@@ -40,7 +40,7 @@
  - Vue ![vue][vueImg] / ES6 ![ES6][ES6Img];
  - jQuery ![jQuery][jQueryImg] / lodash ![lodash][lodashImg];
  - HTML5 ![HTML][HTMLImg] / BEM ![bem][bemImg] / OpenGraph ![openGraph][openGraphImg];
- - Sass (Scss) ![sass][sassImg] / CSS3 ![CSS3][cssImg];
+ - Sass (Scss) ![sass][sassImg] / CSS3 ![CSS3][cssImg] / mobile-first;
 
 
 
@@ -52,12 +52,12 @@
 | 2.    | Environment init, structured the project                  | 0.5   |
 | 3.    | Prepare assets for the projects                           | 1     |
 | 4.    | Create topLineBlock component                             | 3     |
-| 5.    | Create searchBlock component                              |      |
+| 5.    | Create mixBlock component                                 | 6     |
 | 1.    | Create SOME-PAGE component                                |      |
 | 1.    | Code review, refactoring                                  |      |
 | 1.    | Add microdata, correct readme                             |      |
 | 1.    | Deploy                                                    |      |
-|       | TOTAL                                                     | 6.5  |
+|       | TOTAL                                                     | 12.5  |
 
 
 

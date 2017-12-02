@@ -95,7 +95,7 @@
                   <input 
                     class="cardHover__inp" 
                     type="text"
-                    @change="changeProductsAmount()" 
+                    @change="changeProductsAmount($event, item)" 
                     :value=item.amount />
                 </label>
               </div>
@@ -153,25 +153,7 @@ export default {
         {
           id: '001-prod',
           img:'src/assets/prod-min-2.jpg', 
-          title: 'gazenas mutare 111', 
-          stars: 5,
-          price: 65, 
-          rev: 2, 
-          amount: 1
-        },
-        {
-          id: '002-prod',
-          img:'src/assets/prod-min-2.jpg', 
-          title: 'gazenas mutare 222', 
-          stars: 5,
-          price: 35, 
-          rev: 2, 
-          amount: 2
-        },
-        {
-          id: '003-prod',
-          img:'src/assets/prod-min-2.jpg', 
-          title: 'gazenas mutare 333', 
+          title: 'gazenas mutare', 
           stars: 5,
           price: 65, 
           rev: 2, 
@@ -205,17 +187,17 @@ export default {
       });
       this.cardItems.splice(index, 1);
     },
-    changeProductsAmount: function(obj) {
-      // let index = ''; 
-      // this.cardItems.map((item, i) => {
-      //   if(item.id === obj.id){
-      //     index = i;
-      //   }
-      // });
+    changeProductsAmount: function(e, obj) {
+      let index = ''; 
+      const elem = e.target.value;
+      this.cardItems.map((item, i) => {
+        if(item.id === obj.id){
+          index = i;
+        }
+      });
 
-      console.log(obj)
       
-      // this.cardItems[index].amount = obj.amount;
+      this.cardItems[index].amount = elem;
     }
   }
 
@@ -408,7 +390,7 @@ export default {
 }
 
 .cardHover{
-  // display: none;
+  display: none;
   position: absolute;
   top: 100%;
   cursor: auto;
