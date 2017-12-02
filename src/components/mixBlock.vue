@@ -16,11 +16,13 @@
           action="GET" 
           class="search__form"
           :class="[isFocused ? 'search__form_focused' :'']">
-          <div 
+          
+          <label 
+            for="searchInp" 
             class="search__icon"
             :class="[isFocused ? 'search__icon_focused' : '']">
             <i class="fa fa-search" aria-hidden="true"></i>
-          </div>
+          </label>
           <input 
             type="text" 
             placeholder="Enter your keyword..." 
@@ -43,11 +45,97 @@
       <div class="mixBlock__node mixBlock__node_cardWrap myCard">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <h4 class="myCard__title">my card</h4>
-        <p class="myCard__itemAmount">{{cardItemAmount}} item (s)</p>
+        <p class="myCard__itemAmount">{{cardItems.length}} item (s)</p>
+      
 
-      </div>
-    </div>
-  </div>
+        <div 
+          class="myCard__hoverBlock cardHover">
+          <div class="cardHover__topLine">
+            {{ 
+              cardItems.length === 0 ? 
+              'There is no products' : 
+              'Recently added item(s):' 
+            }}
+          </div>
+          
+
+          <div 
+            v-for="item in cardItems" 
+            class="cardHover__item">
+            
+            <img 
+              class="cardHover__img" 
+              :src=item.img 
+              :alt=item.title />
+            
+            <div>
+              <h3 
+                class="cardHover__title">
+                {{item.title}}
+              </h3>
+
+              <div class="cardHover__starsBlock">
+                <ul class="cardHover__starsList">
+                  <li v-for="star in 5" class="cardHover__stars">
+                    <i 
+                      class="fa" 
+                      :class="[item.stars >= star ? 'fa-star' : 'fa-star-o']"
+                      aria-hidden="true">
+                    </i>
+                  </li>
+                </ul>
+                <span class="cardHover__reviews">
+                  {{item.rev}} Review(s)
+                </span>
+              </div>
+
+              <div class="cardHover__priceBlock">
+                <div class="price cardHover__price">{{item.price | currency}}</div>
+                <label class="cardHover__inpWrap">Qty 
+                  <input 
+                    class="cardHover__inp" 
+                    type="text"
+                    @change="changeProductsAmount()" 
+                    :value=item.amount />
+                </label>
+              </div>
+            </div>
+            
+            <div class="cardHover__itemControl">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i 
+                class="fa fa-times" 
+                @click="removeItemFromCard(item.id)" 
+                aria-hidden="true">
+              </i>
+            </div>
+          </div> <!-- item -->
+          
+
+          <div v-if='cardItems.length !== 0'>
+            
+            <div class="cardHover__subtotalBlock">
+              <span class="cardHover__subtotal">Card subtotal:</span> 
+              <span class="price price_blue">{{ cardSubtotal | currency }}</span>
+            </div>
+            
+            <div class="cardHover__btnBlock">
+              <button class="cardHover__viewCardBtn btn">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                view card
+              </button>
+              <button class="cardHover__viewCardBtn btn">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                view card
+              </button>
+            </div>
+
+          </div>
+
+        </div><!-- myCard__hoverBlock cardHover -->
+      </div><!-- mixBlock__node mixBlock__node_cardWrap myCard -->
+    </div><!-- container mixBlock__container -->
+  </div><!-- mixBlock -->
 </template>
 
 
@@ -60,8 +148,45 @@ export default {
   name: 'mixBlock',
   data () {
     return {
-      cardItemAmount: 1,
-      isFocused: false
+      isFocused: false,
+      cardItems: [
+        {
+          id: '001-prod',
+          img:'src/assets/prod-min-2.jpg', 
+          title: 'gazenas mutare 111', 
+          stars: 5,
+          price: 65, 
+          rev: 2, 
+          amount: 1
+        },
+        {
+          id: '002-prod',
+          img:'src/assets/prod-min-2.jpg', 
+          title: 'gazenas mutare 222', 
+          stars: 5,
+          price: 35, 
+          rev: 2, 
+          amount: 2
+        },
+        {
+          id: '003-prod',
+          img:'src/assets/prod-min-2.jpg', 
+          title: 'gazenas mutare 333', 
+          stars: 5,
+          price: 65, 
+          rev: 2, 
+          amount: 1
+        }
+      ]
+    }
+  },
+  computed:{
+    cardSubtotal: function(){
+      let result = 0;
+      this.cardItems.forEach(item => {
+        result += item.price * item.amount;
+      });
+      return result;
     }
   },
   methods: {
@@ -70,6 +195,27 @@ export default {
     },
     searchBlur: function(){
       this.isFocused = false;
+    },
+    removeItemFromCard: function(id) {
+      let index = ''; 
+      this.cardItems.map((item, i) => {
+        if(item.id === id){
+          index = i;
+        }
+      });
+      this.cardItems.splice(index, 1);
+    },
+    changeProductsAmount: function(obj) {
+      // let index = ''; 
+      // this.cardItems.map((item, i) => {
+      //   if(item.id === obj.id){
+      //     index = i;
+      //   }
+      // });
+
+      console.log(obj)
+      
+      // this.cardItems[index].amount = obj.amount;
     }
   }
 
@@ -184,18 +330,23 @@ export default {
     }
   }
   &__btn{
+    padding: 0 15px;
+  }
+}
+
+.btn{
     border-radius: 0;
     border: none;
     background: $accent;
     font-size: 14px;
     color: #fff;
     font-weight: 700;
-    padding: 0 15px;
     cursor: pointer; 
     text-transform: capitalize;
-  }
+    &:hover{
+      background: #1986ae;
+    }
 }
-
 
 .shipping{
   display: flex;
@@ -228,8 +379,10 @@ export default {
 
 .myCard{
   background: $accent;
+  position: relative;
   text-align: center;
   color: #fff;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,7 +400,143 @@ export default {
   &__itemAmount{
     font-size: 12px;
   }
+  &:hover{
+    .cardHover{
+      display: block;
+    }    
+  }
 }
+
+.cardHover{
+  // display: none;
+  position: absolute;
+  top: 100%;
+  cursor: auto;
+  right: 0;
+  color: #484848;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 290px;
+  text-align: left;
+  box-shadow: 0 0 6px rgba(0,0,0,.35);
+  &__topLine{
+    font-size: 12px;
+  }
+  &__item{
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    position: relative;
+    padding: 15px 0;
+    margin: 15px 0;
+    display: flex;
+  }
+  &__img{
+    width: 60px;
+    height: 100%;
+    border: 1px solid #dadada;
+    margin: 0 20px 0 0;
+  }
+  &__title{
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &__starsBlock {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+  }
+  &__starsList{
+    display: flex;
+  }
+  &__stars{
+    .fa {
+      font-size: 12px;
+      color: #ff9600;
+      margin: 0 2px 0 0;
+    }
+  }
+  &__reviews{
+    font-size: 12px;
+    color: #999;
+  }
+  &__priceBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__inpWrap{
+    color: #999;
+    font-size: 12px;
+  }
+  &__inp{
+    font-size: 14px;
+    text-align: center;
+    border-radius: 0;
+    width: 54px;
+    height: 42px;
+    background: #f2f2f2;
+    color: #484848;
+    border: 1px solid #dadada;
+  }
+  &__itemControl{
+    position: absolute;
+    right: 0;
+    .fa{
+      font-size: 14px;
+      color: #c5c5c5;
+      transition: all .3s;
+      cursor: pointer;
+      &:hover{
+        transition: all .3s;
+        color: darken(#c5c5c5, 20%);
+      }
+    }
+  }
+  &__subtotal{
+    width: 82px;
+    display: inline-block;
+    font-size: 12px;
+    color: #484848;
+  }
+  &__btnBlock{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dadada;
+    margin: 15px 0 0 0;
+    padding: 15px 0 0 0;
+  }
+  &__viewCardBtn{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    width: 120px;
+    .fa{
+      font-size: 14px;
+      margin: 0 5px 0 0
+    }
+  }
+  
+}
+
+.price{
+  width: 65px;
+  color: #e13131;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  &_blue{
+    color: $accent;
+  }
+}
+
+
 
 
 /*==========  Mobile First Method  ==========*/
@@ -302,6 +591,34 @@ export default {
   justify-content: center;
   width: 170px;
 }
+
+
+.cardHover{
+  // display: none;
+  width: 390px;
+  &__img{
+    width: 92px;
+  }
+  &__starsBlock {
+    margin: 0 0 20px 0;
+  }
+  &__starsList{
+    margin: 0 15px 0 0;
+  }
+  &__price{
+    margin: 0 15px 0 0;
+  } 
+  &__inp{
+    margin: 0 0 0 5px;
+  }
+  &__subtotal{
+    width: 114px;
+  }
+  &__viewCardBtn{
+    width: 170px;
+  }
+}
+
 
 }
 
