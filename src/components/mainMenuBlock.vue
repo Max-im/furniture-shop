@@ -14,13 +14,16 @@
 
         <ul class="mainMenu__list" v-if="showMenu">
 
-          <li v-for="item in mainMenuList">
+          <li class="mainMenu__item" v-for="item in mainMenuList">
             <a
               class="mainMenu__link"
               :class="item.class"
               :href="item.href">
               {{item.name}}
             </a>
+            <div class="mainMenu__submenu">
+              <component :is="item.subMenu"></component>
+            </div>
           </li>
         </ul>
       </div>
@@ -45,19 +48,19 @@
 
 
 <script>
-
+import bedroomsMenu from './mainMenuBedrooms.vue';
 
 export default {
   name: 'mainMenu',
   data () {
     return {
       mainMenuList: [
-        {class:'fa fa-home mainMenu__item_active', href: '#', name: ''},
-        {class:'hot', href: '#', name: 'features'},
-        {class:'', href: '#', name: 'leaving room'},
-        {class:'new', href: '#', name: 'bedrooms'},
-        {class:'', href: '#', name: 'blog'},
-        {class:'', href: '#', name: 'contact us'}
+        {subMenu:"", class:'fa fa-home mainMenu__item_active', href: '#', name: ''},
+        {subMenu:"", class:'hot', href: '#', name: 'features'},
+        {subMenu:"", class:'', href: '#', name: 'leaving room'},
+        {subMenu:"bedroomsMenu", class:'new', href: '#', name: 'bedrooms'},
+        {subMenu:"", class:'', href: '#', name: 'blog'},
+        {subMenu:"", class:'', href: '#', name: 'contact us'}
       ],
       socList: [
         {href: '#', name:'fa-facebook'}, 
@@ -66,7 +69,6 @@ export default {
         {href: '#', name:'fa-google-plus'}, 
         {href: '#', name:'fa-pinterest'}
       ],
-      windowWidth: 's',
       showMenu: false,
       showSendwich: true,
     }
@@ -75,27 +77,22 @@ export default {
     setWindowWidth: function(){
       const winWid = window.innerWidth;
       if(winWid > 992){
-        this.windowWidth = 'l';
         this.showMenu = true;
         this.showSendwich = false;
       }
       else if( winWid > 768 ){
-        this.windowWidth = 'm';
         this.showMenu = true;
         this.showSendwich = false;
       }
       else if( winWid > 480 ){
-        this.windowWidth = 's';
         this.showMenu = false;
         this.showSendwich = true;
       }
       else if( winWid < 480 ){
-        this.windowWidth = 'xs';
         this.showMenu = false;
         this.showSendwich = true;
       }
       else{
-        this.windowWidth = 'xl';
         this.showMenu = true;
         this.showSendwich = false;
       }
@@ -106,9 +103,11 @@ export default {
   },
   created: function(){
     this.setWindowWidth();
-
     window.addEventListener('resize', this.setWindowWidth)
-  } 
+  },
+  components:{
+    bedroomsMenu
+  }
 
  
 }
@@ -130,6 +129,7 @@ export default {
     background: rgba(22,22,22,.9);
     position: absolute;
     width: 100%;
+    z-index: 100;
     &__container{
       display: flex;
       flex-wrap: wrap;
@@ -147,7 +147,7 @@ export default {
         font-size: 24px;
         line-height: 14px;
         &:hover{
-          color: $accent;
+          background: $accent;
         }
       }
     }
@@ -167,6 +167,12 @@ export default {
       }
     }
     &__item{
+      position: relative;
+      &:hover{
+        .mainMenu__submenu{
+          display: block;
+        }
+      }
       &_active{
         background: $accent;
       }
@@ -182,7 +188,15 @@ export default {
       &:hover{
         transition: all .2s;
         background: $accent;
+        &:after{
+          display: none;
+        }
       }
+    }
+    &__submenu{
+      position: absolute;
+      z-index: 105;
+      // display: none;
     }
     &__socialList{
       display: flex;
@@ -200,6 +214,9 @@ export default {
         font-size: 16px;
         color: #b6b6b6;
         line-height: 14px;
+        &:hover{
+          color: $accent;
+        }
       }
     }
   }

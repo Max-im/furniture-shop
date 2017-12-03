@@ -99,6 +99,7 @@
                     :value=item.amount />
                 </label>
               </div>
+              
             </div>
             
             <div class="cardHover__itemControl">
@@ -315,19 +316,7 @@ export default {
   }
 }
 
-.btn{
-    border-radius: 0;
-    border: none;
-    background: $accent;
-    font-size: 14px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer; 
-    text-transform: capitalize;
-    &:hover{
-      background: #1986ae;
-    }
-}
+
 
 .shipping{
   display: flex;
@@ -508,16 +497,7 @@ export default {
   
 }
 
-.price{
-  width: 65px;
-  color: #e13131;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  &_blue{
-    color: $accent;
-  }
-}
+
 
 
 

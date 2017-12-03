@@ -26,7 +26,7 @@ export default {
       
     }
   },
-   components: {
+  components: {
     topLineBlock,
     mixBlock,
     mainMenu
@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
+  $accent: #279cc7;
+
 
 /*reset */
 html, body, div, span, applet, object, iframe,
@@ -99,6 +101,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body{
   font-family: 'Raleway', sans-serif;
+  background: #999;
 }
 
 
@@ -118,6 +121,42 @@ body{
 
 .hide{
   display: none !important;
+}
+
+.btn{
+    border-radius: 0;
+    border: none;
+    background: $accent;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer; 
+    text-transform: capitalize;
+    &:hover{
+      background: #1986ae;
+    }
+}
+
+
+.price{
+  width: 65px;
+  color: #e13131;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_old{
+    color: #999;
+    font-size: 12px;
+    text-decoration: line-through;
+    font-weight: normal;
+    margin: 0 15px 0 0;
+  }
+  &_blue{
+    color: $accent;
+  }
 }
 
 
