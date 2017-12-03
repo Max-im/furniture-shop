@@ -3,6 +3,7 @@
   <header class="header">
     <topLineBlock></topLineBlock>
     <mixBlock></mixBlock>
+    <mainMenu></mainMenu>
   </header>
 
 
@@ -14,6 +15,7 @@
 
 import topLineBlock from './components/topLineBlock.vue';
 import mixBlock from './components/mixBlock.vue';
+import mainMenu from './components/mainMenuBlock.vue';
 
 
 
@@ -26,7 +28,8 @@ export default {
   },
    components: {
     topLineBlock,
-    mixBlock
+    mixBlock,
+    mainMenu
   }
 }
 </script>
@@ -114,11 +117,42 @@ body{
 }
 
 .hide{
-  display: none;
+  display: none !important;
 }
 
 
+.new{
+  position: relative;
+  &:after{
+    content: 'new';
+    position: absolute;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 8px;
+    text-transform: uppercase;
+    padding: 2px 4px;
+    border-radius: 9px;
+    right: 0;
+    top: 6px;
+  }
+}
 
+
+.hot{
+  position: relative;
+  &:after{
+    content: 'hot';
+    position: absolute;
+    background: #f00;
+    color: #fff;
+    font-size: 8px;
+    text-transform: uppercase;
+    padding: 2px 4px;
+    border-radius: 9px;
+    right: 0;
+    top: 6px;
+  }
+}
 
 
 

@@ -218,7 +218,6 @@ export default {
 
 .mixBlock{
   display: flex;
-
   &__container{
     display: flex;
     flex-wrap: wrap;
@@ -391,11 +390,13 @@ export default {
 
 .cardHover{
   display: none;
+  z-index: 10;
   position: absolute;
   top: 100%;
   cursor: auto;
   right: 0;
   color: #484848;
+  background: #fff;
   box-sizing: border-box;
   padding: 15px;
   width: 290px;
