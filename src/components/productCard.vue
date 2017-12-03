@@ -74,8 +74,13 @@ export default {
 
 .productCard{
   border: 1px solid #ddd; 
+  &__contentBlock{
+    display: flex;
+    padding: 5px 5px 5px 0;
+    justify-content: space-between;
+  }
   &__imgBlock{
-    width: 270px;
+    width: 80px;
   }
   &__img{
     width: 100%;
@@ -104,7 +109,7 @@ export default {
     margin: 10px 0 0 0;
   }
   &__btnBlock{
-    margin: 25px 0 0 0;
+    margin: 5px 0 0 0;
     border-top: 1px solid #ddd;
     display: flex;
     align-items: center;
@@ -123,7 +128,7 @@ export default {
     text-transform: uppercase;
     color: $accent;
     font-weight: 900;
-    padding: 15px;
+    padding: 5px;
     width: 70%;
     text-align: center;
   }
@@ -152,7 +157,23 @@ export default {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-
+.productCard{
+  &__contentBlock{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+  }
+  &__imgBlock{
+    width: 120px;
+  }
+  &__btnBlock{
+    margin: 5px 0 0 0;
+    display: flex;
+  }
+  &__btn{
+    padding: 10px;
+  }
+}
 
 }
 
@@ -161,7 +182,15 @@ export default {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+.productCard{
+  &__contentBlock{
+    padding: 0px;
+    flex-direction: column;
+  }
+  &__imgBlock{
+    width: 180px;
+  }
+}
 
 
 }
@@ -172,6 +201,15 @@ export default {
 
  /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+.productCard{
+  &__imgBlock{
+    width: 270px;
+  }
+  &__btn{
+    padding: 15px;
+  }
+}
+
 
 
 

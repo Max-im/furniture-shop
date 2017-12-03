@@ -15,7 +15,7 @@
     
     <div class="bedroomsMenu__imgBlock">
       <productCard
-        class="bedroomsMenu__imgBlockItem"
+        class="bedroomsMenu__productCard"
         v-for="item in cardList"
         :data="item"
       ></productCard>
@@ -73,9 +73,10 @@ export default {
 
 .bedroomsMenu{
   display: flex;
+  flex-direction: column;
   &__list{
     background: #f2f2f2;
-    padding: 30px 40px 30px 30px;
+    padding: 10px 20px 10px 10px;
   }
   &__title{
     color: #494949;
@@ -93,11 +94,12 @@ export default {
   }
   &__imgBlock{
     background: #fff;
-    padding: 30px 0 30px 30px;
+    padding: 10px 0 10px 10px;
     display: flex;
+    flex-direction: column;
   }
-  &__imgBlockItem{
-    margin: 0 30px 0 0;
+  &__productCard{
+    margin: 0 10px 10px 0;
   }
 }
   
@@ -115,7 +117,21 @@ export default {
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
- 
+ .bedroomsMenu{
+  flex-direction: row;
+  &__list{
+    padding: 10px 20px 10px 10px;
+  }
+  &__imgBlock{
+    padding: 10px 0 10px 10px;
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+  }
+  &__productCard{
+    margin: 0 10px 10px 0;
+  }
+}
 
 }
 
@@ -134,35 +150,18 @@ export default {
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 .bedroomsMenu{
-  display: flex;
   &__list{
-    background: #f2f2f2;
-    padding: 30px 40px 30px 30px;
-  }
-  &__title{
-    color: #494949;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 0 0 10px 0;
-    text-transform: uppercase;
-  }
-  &__link{
-    font-size: 14px;
-    color: #494949;
-    text-transform: capitalize;
-    white-space: nowrap;
-    line-height: 28px;
+    padding: 20px;
   }
   &__imgBlock{
-    background: #fff;
-    padding: 30px 0 30px 30px;
-    display: flex;
+    padding: 20px 0 20px 20px;
+    width: auto;
+    flex-direction: row;
   }
-  &__imgBlockItem{
-    margin: 0 30px 0 0;
+  &__productCard{
+    margin: 0 20px 0px 0;
   }
 }
-
 
 }
 
@@ -172,7 +171,19 @@ export default {
 
  /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+.bedroomsMenu{
+  &__list{
+    padding: 30px 40px 0 30px;
+  }
+  &__imgBlock{
+    padding: 30px 0 30px 30px;
+    width: auto;
+    flex-direction: row;
+  }
+  &__productCard{
+    margin: 0 30px 0px 0;
+  }
+}
 
 
 }

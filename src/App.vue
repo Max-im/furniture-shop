@@ -145,6 +145,7 @@ body{
   font-weight: 700;
   font-size: 16px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   &_old{
@@ -152,7 +153,7 @@ body{
     font-size: 12px;
     text-decoration: line-through;
     font-weight: normal;
-    margin: 0 15px 0 0;
+    margin: 0 15px 5px 0;
   }
   &_blue{
     color: $accent;
@@ -193,7 +194,15 @@ body{
   }
 }
 
+@media only screen and (min-width : 992px) {
+.price{
+  flex-direction: row;
+  &_old{
+    margin: 0 15px 0px 0;
+  }
+}
 
+}
 
 
  /* Large Devices, Wide Screens */

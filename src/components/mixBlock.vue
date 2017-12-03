@@ -379,7 +379,7 @@ export default {
 
 .cardHover{
   display: none;
-  z-index: 10;
+  z-index: 200;
   position: absolute;
   top: 100%;
   cursor: auto;
