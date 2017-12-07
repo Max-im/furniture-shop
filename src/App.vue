@@ -101,7 +101,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body{
   font-family: 'Raleway', sans-serif;
-  background: #999;
 }
 
 
@@ -163,6 +162,11 @@ body{
 
 .new{
   position: relative;
+  &:hover{
+    &:after{
+      display: none;
+    }
+  }
   &:after{
     content: 'new';
     position: absolute;

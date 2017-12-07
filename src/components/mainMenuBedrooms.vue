@@ -2,11 +2,11 @@
   <div class="bedroomsMenu">
     <ul class="bedroomsMenu__list">
       <li class="bedroomsMenu__item">
-        <h3 class="bedroomsMenu__title">accessories</h3>
+        <h3 class="bedroomsMenu__title submenu__title">accessories</h3>
       </li>
       <li class="bedroomsMenu__item" v-for="item in menuList">
         <a 
-          class="bedroomsMenu__link" 
+          class="bedroomsMenu__link submenu__link" 
           href="#">
           {{item}}
         </a>
@@ -78,18 +78,7 @@ export default {
     background: #f2f2f2;
     padding: 10px 20px 10px 10px;
   }
-  &__title{
-    color: #494949;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 0 0 10px 0;
-    text-transform: uppercase;
-  }
   &__link{
-    font-size: 14px;
-    color: #494949;
-    text-transform: capitalize;
-    white-space: nowrap;
     line-height: 28px;
   }
   &__imgBlock{
@@ -103,6 +92,25 @@ export default {
   }
 }
   
+.submenu{
+  &__title{
+    color: #494949;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+  }
+  &__link{
+    font-size: 14px;
+    color: #494949;
+    line-height: 28px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    &:hover{
+      color: $accent;
+    }
+  }
+}
 
 
 /*==========  Mobile First Method  ==========*/

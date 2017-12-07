@@ -49,6 +49,8 @@
 
 <script>
 import bedroomsMenu from './mainMenuBedrooms.vue';
+import featuresMenu from './mainMenuFeatures.vue';
+import leavingRoomMenu from './mainMenuLeavingRoom.vue';
 
 export default {
   name: 'mainMenu',
@@ -56,8 +58,8 @@ export default {
     return {
       mainMenuList: [
         {subMenu:"", class:'fa fa-home mainMenu__item_active', href: '#', name: ''},
-        {subMenu:"", class:'hot', href: '#', name: 'features'},
-        {subMenu:"", class:'', href: '#', name: 'leaving room'},
+        {subMenu:"featuresMenu", class:'hot', href: '#', name: 'features'},
+        {subMenu:"leavingRoomMenu", class:'', href: '#', name: 'leaving room'},
         {subMenu:"bedroomsMenu", class:'new', href: '#', name: 'bedrooms'},
         {subMenu:"", class:'', href: '#', name: 'blog'},
         {subMenu:"", class:'', href: '#', name: 'contact us'}
@@ -106,7 +108,9 @@ export default {
     window.addEventListener('resize', this.setWindowWidth)
   },
   components:{
-    bedroomsMenu
+    bedroomsMenu,
+    featuresMenu,
+    leavingRoomMenu
   }
 
  
@@ -188,15 +192,13 @@ export default {
       &:hover{
         transition: all .2s;
         background: $accent;
-        &:after{
-          display: none;
-        }
       }
     }
     &__submenu{
       position: absolute;
       z-index: 105;
-      // display: none;
+      display: none;
+      box-shadow: 0 1px 5px rgba(0,0,0,.4);
     }
     &__socialList{
       display: flex;
