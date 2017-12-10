@@ -139,9 +139,7 @@ export default {
   $accent: #279cc7;
 
 
-.submenu{
-  background: #fff;
-}  
+
 
 
 

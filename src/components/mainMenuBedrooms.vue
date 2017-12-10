@@ -91,26 +91,7 @@ export default {
     margin: 0 10px 10px 0;
   }
 }
-  
-.submenu{
-  &__title{
-    color: #494949;
-    font-size: 14px;
-    font-weight: 800;
-    padding: 0 0 10px 0;
-    text-transform: uppercase;
-  }
-  &__link{
-    font-size: 14px;
-    color: #494949;
-    line-height: 28px;
-    text-transform: capitalize;
-    white-space: nowrap;
-    &:hover{
-      color: $accent;
-    }
-  }
-}
+ 
 
 
 /*==========  Mobile First Method  ==========*/

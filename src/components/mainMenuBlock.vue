@@ -21,7 +21,7 @@
               :href="item.href">
               {{item.name}}
             </a>
-            <div class="mainMenu__submenu">
+            <div class="mainMenu__submenu" :class="item.subMenu+'__wrapper'">
               <component :is="item.subMenu"></component>
             </div>
           </li>
@@ -138,9 +138,9 @@ export default {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      position: relative;
     }
     &__wrapper{
-      position: relative;
       order: 2;
     }
     &__sendwich{
@@ -159,7 +159,7 @@ export default {
       display: flex;
       flex-direction: column;
       position: absolute;
-      left: 0;
+      left: 15px;
       top: 100%;
       width: 200px;
       background: rgba(22,22,22,.9);
@@ -171,7 +171,7 @@ export default {
       }
     }
     &__item{
-      position: relative;
+      // position: relative;
       &:hover{
         .mainMenu__submenu{
           display: block;
@@ -224,6 +224,27 @@ export default {
   }
 
 
+  .submenu{
+    background: #fff;
+    padding: 15px 10px 10px 10px;
+    &__title{
+      color: #494949;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 0 0 10px 0;
+      text-transform: uppercase;
+    }
+    &__link{
+      font-size: 14px;
+      color: #494949;
+      line-height: 20px;
+      text-transform: capitalize;
+      white-space: nowrap;
+      &:hover{
+        color: $accent;
+      }
+    }
+  }  
 
 /*==========  Mobile First Method  ==========*/
 
@@ -240,14 +261,24 @@ export default {
  .mainMenu{
     &__wrapper{
       order: 1;
+      width: 100%;
     }
     &__socialList{
       order: 2;
       width: 170px;
+      position: absolute;
+      right: 15px;
+      top: 0;
     }
   }
 
 
+.leavingRoomMenu{
+  &__wrapper{
+    width: 450px;
+  }
+}
+  
 
 }
 
@@ -272,8 +303,18 @@ export default {
     
   }
 
+  .submenu{
+    padding: 15px 10px 10px 10px;
+    &__link{
+      line-height: 28px;
+    }
+  }  
 
-
+  .leavingRoomMenu{
+    &__wrapper{
+      width: auto;
+    }
+  }
 }
 
 
@@ -288,6 +329,9 @@ export default {
     
   }
 
+  .submenu{
+    padding: 35px 30px 30px 30px;
+  }  
 
 
 }
@@ -298,7 +342,11 @@ export default {
 
  /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+.mainMenu{
+    &__socialList{
+      right: 0px;
+    }
+  }
 
 
 }
