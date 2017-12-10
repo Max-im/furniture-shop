@@ -17,6 +17,7 @@
           <li 
             class="mainMenu__item" 
             :class="item.classP"
+            :key="item.name"
             v-for="item in mainMenuList">
             <a
               class="mainMenu__link"

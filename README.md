@@ -38,7 +38,7 @@
 ## __Technologies:__
  - vue-cli ![cli][cliImg];
  - Vue ![vue][vueImg] / ES6 ![ES6][ES6Img];
- - jQuery ![jQuery][jQueryImg] / lodash ![lodash][lodashImg];
+ - jQuery ![jQuery][jQueryImg] / owl-carousel / lodash ![lodash][lodashImg];
  - HTML5 ![HTML][HTMLImg] / BEM ![bem][bemImg] / OpenGraph ![openGraph][openGraphImg];
  - Sass (Scss) ![sass][sassImg] / CSS3 ![CSS3][cssImg] / mobile-first;
 
@@ -53,6 +53,7 @@
 | 3.    | Prepare assets for the projects                           | 1     |
 | 4.    | Create topLineBlock component                             | 3     |
 | 5.    | Create mixBlock component                                 | 6     |
+| 6.    | Create mainMenu component                                 | 6     |
 | 1.    | Create SOME-PAGE component                                |      |
 | 1.    | Code review, refactoring                                  |      |
 | 1.    | Add microdata, correct readme                             |      |

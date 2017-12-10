@@ -4,7 +4,9 @@
       <li class="bedroomsMenu__item">
         <h3 class="bedroomsMenu__title submenu__title">accessories</h3>
       </li>
-      <li class="bedroomsMenu__item" v-for="item in menuList">
+      <li 
+        class="bedroomsMenu__item" 
+        v-for="item in menuList">
         <a 
           class="bedroomsMenu__link submenu__link" 
           href="#">
@@ -17,6 +19,7 @@
       <productCard
         class="bedroomsMenu__productCard"
         v-for="item in cardList"
+        :key="item.title"
         :data="item"
       ></productCard>
     </div>

@@ -1,10 +1,17 @@
 <template>
+  <div class="wrapper">
 
-  <header class="header">
-    <topLineBlock></topLineBlock>
-    <mixBlock></mixBlock>
-    <mainMenu></mainMenu>
-  </header>
+    <header class="header">
+      <topLineBlock></topLineBlock>
+      <mixBlock></mixBlock>
+      <mainMenu></mainMenu>
+    </header>
+
+    <main>
+      <sliderBlock></sliderBlock>
+    </main>
+
+  </div>
 
 
 </template>
@@ -16,6 +23,7 @@
 import topLineBlock from './components/topLineBlock.vue';
 import mixBlock from './components/mixBlock.vue';
 import mainMenu from './components/mainMenuBlock.vue';
+import sliderBlock from './components/sliderBlock.vue';
 
 
 
@@ -29,7 +37,8 @@ export default {
   components: {
     topLineBlock,
     mixBlock,
-    mainMenu
+    mainMenu,
+    sliderBlock
   }
 }
 </script>
