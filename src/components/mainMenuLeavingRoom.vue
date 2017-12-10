@@ -160,6 +160,11 @@ export default {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+.leavingRoomMenu{
+  &__link{
+    letter-spacing: normal;
+  }
+}
 
 
 }

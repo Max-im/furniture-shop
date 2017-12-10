@@ -14,7 +14,10 @@
 
         <ul class="mainMenu__list" v-if="showMenu">
 
-          <li class="mainMenu__item" v-for="item in mainMenuList">
+          <li 
+            class="mainMenu__item" 
+            :class="item.classP"
+            v-for="item in mainMenuList">
             <a
               class="mainMenu__link"
               :class="item.class"
@@ -60,7 +63,7 @@ export default {
         {subMenu:"", class:'fa fa-home mainMenu__item_active', href: '#', name: ''},
         {subMenu:"featuresMenu", class:'hot', href: '#', name: 'features'},
         {subMenu:"leavingRoomMenu", class:'', href: '#', name: 'leaving room'},
-        {subMenu:"bedroomsMenu", class:'new', href: '#', name: 'bedrooms'},
+        {subMenu:"bedroomsMenu", classP:'new', href: '#', name: 'bedrooms'},
         {subMenu:"", class:'', href: '#', name: 'blog'},
         {subMenu:"", class:'', href: '#', name: 'contact us'}
       ],
@@ -171,8 +174,10 @@ export default {
       }
     }
     &__item{
-      // position: relative;
+      transition: all .2s;
       &:hover{
+        transition: all .2s;
+        background: $accent;
         .mainMenu__submenu{
           display: block;
         }
@@ -188,11 +193,6 @@ export default {
       font-size: 14px;
       padding: 20px;
       display: block;
-      transition: all .2s;
-      &:hover{
-        transition: all .2s;
-        background: $accent;
-      }
     }
     &__submenu{
       position: absolute;
@@ -205,6 +205,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       padding: 0 25px;
+      z-index: 200;
       order: 1;
       box-sizing: border-box;
       width: 100%;

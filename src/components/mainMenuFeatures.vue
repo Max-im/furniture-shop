@@ -8,6 +8,11 @@
         <a 
           class="featuresMenu__link submenu__link" 
           href="#">
+          <span 
+            :style="{background: subitem.color}"
+            class="featuresMenu__color" 
+            v-if="subitem.color">
+          </span>
           {{subitem.name}}
         </a>
       </li>
@@ -40,11 +45,11 @@ export default {
         {
           title: 'color styles',
           list: [
-            {name: 'brown', color: ''}, 
-            {name: 'red', color: ''}, 
-            {name: 'green', color: ''}, 
-            {name: 'orange', color: ''}, 
-            {name: 'blue', color: ''}
+            {name: 'brown', color: '#925829'}, 
+            {name: 'red', color: '#f64b00'}, 
+            {name: 'green', color: '#80a439'}, 
+            {name: 'orange', color: '#e9a105'}, 
+            {name: 'blue', color: '#03a9f4'}
           ]
         },
 
@@ -144,10 +149,20 @@ export default {
 
 
 .featuresMenu{
+  display: flex;
+  justify-conten: space-between;
+  flex-wrap: wrap;
   &__list{
+    width: 100%;
     margin: 0 0 10px 0;
     padding: 5px;
     box-sizing: border-box;
+  }
+  &__color{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 5px 0 0;
   }
 }
 
@@ -164,7 +179,14 @@ export default {
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
- 
+ .featuresMenu{
+  &__wrapper{
+    width: 450px;
+  }
+  &__list{
+    width: 50%;
+  }
+}
 
 }
 
@@ -173,7 +195,15 @@ export default {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-
+.featuresMenu{
+  &__wrapper{
+    width: 100%;
+    left: 0;
+  }
+  &__list{
+    width: calc(100% / 3);
+  }
+}
 
 }
 
@@ -182,7 +212,11 @@ export default {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+.featuresMenu{
+  &__list{
+    width: calc(100% / 4);
+  }
+}
 
 }
 
@@ -193,6 +227,11 @@ export default {
  /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 
+.featuresMenu{
+  &__list{
+    width: calc(100% / 5);
+  }
+}
 
 }
 
