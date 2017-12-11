@@ -137,7 +137,7 @@ export default {
     background: rgba(22,22,22,.9);
     position: absolute;
     width: 100%;
-    z-index: 100;
+    z-index: 400;
     &__container{
       display: flex;
       flex-wrap: wrap;
@@ -164,6 +164,7 @@ export default {
       flex-direction: column;
       position: absolute;
       left: 15px;
+      z-index: 300;
       top: 100%;
       width: 200px;
       background: rgba(22,22,22,.9);
