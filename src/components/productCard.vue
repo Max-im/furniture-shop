@@ -14,7 +14,7 @@
             <li v-for="star in 5" class="productCard__stars">
               <i 
                 class="fa" 
-                :class="data.stars >= star ? 'fa-star' : 'fa-star-o' "
+                :class="data.stars >= star ? 'fa-star' : 'fa-star fa-star_o' "
                 aria-hidden="true">
               </i>
             </li>

@@ -147,6 +147,8 @@ export default {
       position: relative;
       z-index: 150;
       font-size: 12px;
+      font-weight: 700;
+      font-family: 'Open Sans', sans-serif;
     }
   }
 
@@ -163,6 +165,7 @@ export default {
     top: 50%;
     left: 0;
     width: 100%;
+    height: 0;
     display: flex;
     padding: 0 3%;
     box-sizing: border-box;
@@ -312,6 +315,10 @@ export default {
     &:before{
       font-size: 76px;
     }
+  }
+
+  .owl-dots{
+    bottom: 15%;
   }
 
 }

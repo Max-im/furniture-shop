@@ -9,6 +9,7 @@
 
     <main>
       <sliderBlock></sliderBlock>
+      <popularBlock></popularBlock>
     </main>
 
   </div>
@@ -24,6 +25,7 @@ import topLineBlock from './components/topLineBlock.vue';
 import mixBlock from './components/mixBlock.vue';
 import mainMenu from './components/mainMenuBlock.vue';
 import sliderBlock from './components/sliderBlock.vue';
+import popularBlock from './components/popularBlock.vue';
 
 
 
@@ -38,7 +40,8 @@ export default {
     topLineBlock,
     mixBlock,
     mainMenu,
-    sliderBlock
+    sliderBlock,
+    popularBlock
   }
 }
 </script>
@@ -74,7 +77,7 @@ html {
 }
 
 ol, ul {
-  list-style: none;
+  list-style: none !important;
 }
 
 table {
@@ -101,7 +104,7 @@ a img {
 }
 a, input, button{
   outline: none !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -205,6 +208,11 @@ body{
     right: 0;
     top: 6px;
   }
+}
+
+
+.fa-star_o{
+  color: #999 !important;
 }
 
 @media only screen and (min-width : 992px) {
