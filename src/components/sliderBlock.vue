@@ -345,6 +345,10 @@ export default {
     }
   }
 
+  .owl-dots{
+    bottom: 80px;
+  }
+
 }
 
 

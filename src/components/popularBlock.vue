@@ -49,10 +49,10 @@
           <div class="products__main_bottom">
             
             <div>
-              <h3 
+              <h4 
                 class="products__title">
                 {{products.list[products.main].title}}
-              </h3>
+              </h4>
               <div class="products__priceBlock">
                 <span 
                   class="price_old" 
@@ -87,11 +87,70 @@
               </a>
             </div>
 
-          </div>
+          </div><!-- products__main_bottom -->
 
-        </div>
+        </div><!-- products__main -->
+
+        <div class="products__list">
+          
+          <ul>
+            <li> 
+              <h3 class="products__mainTitle">
+                <b class="products__mainTitle_bold">popular</b> 
+                products
+              </h3>
+            </li>
+
+
+            <li 
+              v-if="index !== products.main"
+              v-for="(item, index) in products.list.length">
+              <a 
+                @click.prevent="changeMainItem(index)"
+                href="#" 
+                class="products__listItem">
+                
+                <div class="products__listImgWrap">
+                  <img 
+                    class="products__listImg"
+                    :src="products.list[index].img" 
+                    :alt="products.list[index].title">
+                </div>
+
+                <div>
+                  <h4 
+                    class="products__title">
+                    {{products.list[index].title}}
+                  </h4>
+                  <div class="products__priceBlock">
+                    <span 
+                      class="price_old" 
+                      v-if="products.list[index].oldPrice">
+                      {{products.list[index].oldPrice | currency}}
+                    </span>
+                    <span class="price">
+                      {{products.list[index].price | currency}}
+                    </span>
+                  </div>
+                  <ul class="products__starBlock">
+                    <li v-for="star in 5" class="productCard__stars">
+                      <i 
+                        class="fa" 
+                        :class="products.list[index].stars >= star ? 'fa-star' : 'fa-star fa-star_o' "
+                        aria-hidden="true">
+                      </i>
+                    </li>
+                  </ul>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div><!-- products__list -->
                       
-      </div>
+      </div><!-- products -->
+      
+
 
     </div><!-- container -->
   </div><!-- popular -->
@@ -136,7 +195,7 @@ export default {
             img: '/src/assets/prod-min-2.jpg', 
             title: 'gazenas mutare', 
             stars: 5, 
-            price: 80,
+            price: 65,
             sale: false,
             timer: 130
           },
@@ -144,7 +203,7 @@ export default {
             img: '/src/assets/prod-min-3.jpg', 
             title: 'gazenas mitra', 
             stars: 5, 
-            price: 80,
+            price: 84,
             sale: false,
             timer: 180
           }
@@ -162,6 +221,9 @@ export default {
       if(this.products.main > 0){
         this.products.main--;
       }
+    },
+    changeMainItem: function(val){
+        this.products.main = val;
     }
   }
 }
@@ -233,9 +295,12 @@ export default {
 
 .products{
   background: #fff;
+  display: flex;
+  width: 70%;
   &__main{
     padding: 30px;
     box-sizing: border-box;
+    border-right: 1px solid #ddd;
     &:hover{
       .products__title{
         color: $accent;
@@ -249,10 +314,40 @@ export default {
       justify-content: space-between;
     }
   }
+  &__mainTitle{
+    text-transform: uppercase;
+    padding: 30px;
+    color: #484848;
+    font-size: 20px;
+    &_bold{
+      font-weight: 900;
+    }
+  }
   &__imgWrap{
     width: 400px;
   }
   &__img{
+    width: 100%;
+  }
+  &__listItem{
+    display: flex;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    &:hover{
+      .products__title{
+        color: $accent;
+      }
+    }
+  }
+  &__list{
+    flex: 1 0 auto;
+  }
+  &__listImgWrap{
+    width: 90px;
+    border: 1px solid #ddd;
+    margin: 0 20px 0 0;
+  }
+  &__listImg{
     width: 100%;
   }
   &__title{
