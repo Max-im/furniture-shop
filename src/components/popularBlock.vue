@@ -35,7 +35,12 @@
           <div class="products__main_top">
             
             <div class="products__timer">
-              <p>{{products.list[products.main].timer}}</p>
+              <ul>
+                <li>{{daysParse}} <span class="products__timerText">days</span></li>
+                <li>{{hoursParse}} <span class="products__timerText">hours</span></li>
+                <li>{{minParse}} <span class="products__timerText">mins</span></li>
+                <li>{{secParse}} <span class="products__timerText">secs</span></li>
+              </ul>
             </div>
             <div class="products__imgWrap">
               <img 
@@ -161,6 +166,8 @@
 
 <script>
 
+import moment from 'moment';
+
 export default {
   name: 'popularBlock',
   data () {
@@ -181,7 +188,7 @@ export default {
             price: 80, 
             oldPrice: 95,
             sale: true,
-            timer: 100
+            timer: "2018-12-26"
           },
           {
             img: '/src/assets/prod-min-1.jpg', 
@@ -189,7 +196,7 @@ export default {
             stars: 5, 
             price: 80,
             sale: false,
-            timer: 150
+            timer: "2018-02-25"
           },
           {
             img: '/src/assets/prod-min-2.jpg', 
@@ -197,7 +204,7 @@ export default {
             stars: 5, 
             price: 65,
             sale: false,
-            timer: 130
+            timer: "2018-02-25"
           },
           {
             img: '/src/assets/prod-min-3.jpg', 
@@ -205,11 +212,42 @@ export default {
             stars: 5, 
             price: 84,
             sale: false,
-            timer: 180
+            timer: "2018-02-24"
           }
         ]
-      }
+      },
+      now: moment(),
     }
+  },
+  computed: {
+    daysParse: function(){
+      return moment(this.products.list[this.products.main].timer)
+        .diff(this.now, 'days');
+    },
+
+    hoursParse: function(){
+      return moment(
+        moment(this.products.list[this.products.main].timer)
+          .subtract(this.daysParse, 'd')
+        ).diff(this.now, 'hours');
+    },
+
+    minParse: function(){
+      return moment(
+        moment(this.products.list[this.products.main].timer)
+          .subtract(this.daysParse, 'd')
+          .subtract(this.hoursParse, 'h')
+        ).diff(this.now, 'minutes');
+    },
+
+    secParse: function(){
+      return moment(
+        moment(this.products.list[this.products.main].timer)
+          .subtract(this.daysParse, 'd')
+          .subtract(this.hoursParse, 'h')
+          .subtract(this.minParse, 'm')
+        ).diff(this.now, 'seconds');
+    },
   },
   methods: {
     increment: function(){
@@ -224,7 +262,11 @@ export default {
     },
     changeMainItem: function(val){
         this.products.main = val;
-    }
+    },
+    
+  },
+  created: function(){
+    setInterval(()=>{this.now = moment()},1000)
   }
 }
 
