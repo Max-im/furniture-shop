@@ -247,6 +247,7 @@ export default {
   top: -2px;
   &__container{
     display: flex;
+    flex-wrap: wrap;
   }
 }
 
@@ -296,9 +297,11 @@ export default {
 .products{
   background: #fff;
   display: flex;
-  width: 70%;
+  width: 100%;
+  flex-wrap: wrap;
   &__main{
-    padding: 30px;
+    padding: 10px;
+    width: 100%;
     box-sizing: border-box;
     border-right: 1px solid #ddd;
     &:hover{
@@ -324,10 +327,13 @@ export default {
     }
   }
   &__imgWrap{
-    width: 400px;
+    width: 100%;
   }
   &__img{
+    max-width: 400px;
     width: 100%;
+    display: block;
+    margin: 0 auto;
   }
   &__listItem{
     display: flex;
@@ -403,8 +409,11 @@ export default {
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
- 
-
+ .products{
+    &__main{
+      padding: 30px;
+    }
+  }
 }
 
 
@@ -424,6 +433,27 @@ export default {
   &__item{
     width: auto;
   }
+}
+
+
+.products{
+  &__list{
+    >ul{
+      display: flex;
+      flex-wrap: wrap;
+      >li:first-child{
+        width: 100%
+      }
+      >li{
+        width: calc(100% / 3);
+      }
+    }    
+  }
+  &__listItem{
+    display: flex;
+    padding: 20px 5px;
+  }
+  
 }
 
 }
@@ -446,7 +476,7 @@ export default {
 
 
 .dayDeals{
-  width: 30%;
+  width: 100%;
   &__title{
     font-size: 20px;
   }
@@ -459,6 +489,55 @@ export default {
   }
 }
 
+
+.products{
+  flex-wrap: nowrap;
+  &__main{
+    width: 70%;
+  }
+  &__mainTitle{
+    text-transform: uppercase;
+    padding: 30px;
+    color: #484848;
+    font-size: 20px;
+    &_bold{
+      font-weight: 900;
+    }
+  }
+  &__imgWrap{
+    width: 100%;
+  }
+  &__img{
+    max-width: 400px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  &__listItem{
+    display: flex;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    &:hover{
+      .products__title{
+        color: $accent;
+      }
+    }
+  }
+  &__list{
+    flex: 1 0 auto;
+    width: 30%;
+    >ul{
+      display: block;
+      >li{
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+
+
 }
 
 
@@ -467,6 +546,18 @@ export default {
 
  /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+
+
+
+.dayDeals{
+  width: 30%;
+}
+
+
+.products{
+  width: 70%;
+}
+
 
 
 
