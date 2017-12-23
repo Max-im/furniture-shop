@@ -36,10 +36,38 @@
             
             <div class="products__timer">
               <ul>
-                <li>{{daysParse}} <span class="products__timerText">days</span></li>
-                <li>{{hoursParse}} <span class="products__timerText">hours</span></li>
-                <li>{{minParse}} <span class="products__timerText">mins</span></li>
-                <li>{{secParse}} <span class="products__timerText">secs</span></li>
+                <li 
+                  class="products__timerItem">
+                  {{daysParse}}
+                  <span 
+                    class="products__timerText">
+                    days
+                  </span>
+                </li>
+                <li 
+                  class="products__timerItem">
+                  {{hoursParse}}
+                  <span 
+                    class="products__timerText">
+                    hours
+                  </span>
+                </li>
+                <li 
+                  class="products__timerItem">
+                  {{minParse}}
+                  <span 
+                    class="products__timerText">
+                    mins
+                  </span>
+                </li>
+                <li 
+                  class="products__timerItem">
+                  {{secParse}}
+                  <span 
+                    class="products__timerText">
+                    secs
+                  </span>
+                </li>
               </ul>
             </div>
             <div class="products__imgWrap">
@@ -204,7 +232,7 @@ export default {
             stars: 5, 
             price: 65,
             sale: false,
-            timer: "2018-02-25"
+            timer: "2018-01-05"
           },
           {
             img: '/src/assets/prod-min-3.jpg', 
@@ -212,7 +240,7 @@ export default {
             stars: 5, 
             price: 84,
             sale: false,
-            timer: "2018-02-24"
+            timer: "2018-01-20"
           }
         ]
       },
@@ -266,7 +294,7 @@ export default {
     
   },
   created: function(){
-    setInterval(()=>{this.now = moment()},1000)
+    setInterval(()=>this.now = moment(),1000)
   }
 }
 
@@ -434,6 +462,31 @@ export default {
       color: #fff;
       background: $accent;
     }
+  }
+  &__timerItem{
+    color: #ff5722;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16;
+    width: 55px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    text-align: center;
+    padding: 10px 0 0 0;
+    &:last-child{
+      border: 1px solid #ddd;
+    }
+  }
+  &__timerText{
+    display: block;
+    text-transform: uppercase;
+    color: #777;
+    font-size: 9px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    margin: 4px 0 0 0;
   }
 }
 
