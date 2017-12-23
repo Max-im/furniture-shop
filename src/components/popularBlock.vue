@@ -315,6 +315,7 @@ export default {
   background: #eee;
   position: relative;
   top: -2px;
+  
   &__container{
     display: flex;
     flex-wrap: wrap;

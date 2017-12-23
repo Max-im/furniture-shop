@@ -10,6 +10,7 @@
     <main>
       <sliderBlock></sliderBlock>
       <popularBlock></popularBlock>
+      <bannersBlock></bannersBlock>
     </main>
 
   </div>
@@ -26,6 +27,7 @@ import mixBlock from './components/mixBlock.vue';
 import mainMenu from './components/mainMenuBlock.vue';
 import sliderBlock from './components/sliderBlock.vue';
 import popularBlock from './components/popularBlock.vue';
+import bannersBlock from './components/bannersBlock.vue';
 
 
 
@@ -41,7 +43,8 @@ export default {
     mixBlock,
     mainMenu,
     sliderBlock,
-    popularBlock
+    popularBlock,
+    bannersBlock
   }
 }
 </script>
