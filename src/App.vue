@@ -11,6 +11,7 @@
       <sliderBlock></sliderBlock>
       <popularBlock></popularBlock>
       <bannersBlock></bannersBlock>
+      <featuredProductsBlock></featuredProductsBlock>
     </main>
 
   </div>
@@ -28,6 +29,8 @@ import mainMenu from './components/mainMenuBlock.vue';
 import sliderBlock from './components/sliderBlock.vue';
 import popularBlock from './components/popularBlock.vue';
 import bannersBlock from './components/bannersBlock.vue';
+import featuredProductsBlock from './components/featuredProductsBlock.vue';
+
 
 
 
@@ -44,7 +47,8 @@ export default {
     mainMenu,
     sliderBlock,
     popularBlock,
-    bannersBlock
+    bannersBlock,
+    featuredProductsBlock
   }
 }
 </script>
@@ -226,21 +230,21 @@ body{
     position: absolute;
     width: 0; 
     height: 0; 
-    border-bottom: 20px solid transparent;
-    border-right: 20px solid transparent;
-    left: 0;
-    bottom: -10px;
   }
   &_sale{
     background: #ff5722;
     font-weight: 900;
     border-radius: 5px;
     &:after{
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid transparent;
+      left: 0;
+      bottom: -10px;
       content: '';
       border-left: 10px solid #ff5722;
-
     }
   }
+  
 }
 
 .fa-star_o{
