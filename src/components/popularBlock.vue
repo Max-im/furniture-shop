@@ -32,7 +32,15 @@
       <div class="products">
         <div class="products__main">
 
+          <div 
+            v-if="products.list[products.main].oldPrice"
+            class="flag products__flag"
+            :class="products.list[products.main].flag">
+            sale
+          </div>
+
           <div class="products__main_top">
+
             
             <div class="products__timer">
               <ul>
@@ -70,6 +78,7 @@
                 </li>
               </ul>
             </div>
+
             <div class="products__imgWrap">
               <img 
                 class="products__img"
@@ -214,6 +223,7 @@ export default {
             title: 'auzan mipane', 
             stars: 3, 
             price: 80, 
+            flag: 'flag_sale',
             oldPrice: 95,
             sale: true,
             timer: "2018-12-26"
@@ -223,6 +233,7 @@ export default {
             title: 'kazens dimans', 
             stars: 5, 
             price: 80,
+            falg: '',
             sale: false,
             timer: "2018-02-25"
           },
@@ -231,6 +242,7 @@ export default {
             title: 'gazenas mutare', 
             stars: 5, 
             price: 65,
+            falg: '',
             sale: false,
             timer: "2018-01-05"
           },
@@ -239,6 +251,7 @@ export default {
             title: 'gazenas mitra', 
             stars: 5, 
             price: 84,
+            falg: '',
             sale: false,
             timer: "2018-01-20"
           }
@@ -371,6 +384,7 @@ export default {
   width: 100%;
   flex-wrap: wrap;
   &__main{
+    position: relative;
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -489,6 +503,10 @@ export default {
     font-weight: normal;
     margin: 4px 0 0 0;
   }
+  &__flag{
+    top: 10px;
+    right: 10px;
+  }
 }
 
 
@@ -548,6 +566,10 @@ export default {
   &__listItem{
     display: flex;
     padding: 20px 5px;
+  }
+  &__flag{
+    top: 30px;
+    right: 30px;
   }
   
 }
@@ -628,7 +650,9 @@ export default {
         width: 100%;
       }
     }
-
+  }
+  &__timer{
+    margin: 20px 0 0 0;
   }
 }
 

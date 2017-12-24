@@ -38,7 +38,7 @@
 ## __Technologies:__
  - vue-cli ![cli][cliImg];
  - Vue ![vue][vueImg] / ES6 ![ES6][ES6Img];
- - jQuery ![jQuery][jQueryImg] / owl-carousel / lodash ![lodash][lodashImg];
+ - jQuery ![jQuery][jQueryImg] / owl-carousel / lodash ![lodash][lodashImg] / moment ![moment][momentImg];
  - HTML5 ![HTML][HTMLImg] / BEM ![bem][bemImg] / OpenGraph ![openGraph][openGraphImg];
  - Sass (Scss) ![sass][sassImg] / CSS3 ![CSS3][cssImg] / mobile-first;
 
@@ -55,12 +55,13 @@
 | 5.    | Create mixBlock component                                 | 6     |
 | 6.    | Create mainMenu component                                 | 6     |
 | 7.    | Create slider component                                   | 2     |
-| 8.    | Create popular component                                  |      |
+| 8.    | Create popular component                                  |  4.5    |
+| 8.    | Create banners component                                  |  0.5    |
 | 1.    | Create SOME-PAGE component                                |      |
 | 1.    | Code review, refactoring                                  |      |
 | 1.    | Add microdata, correct readme                             |      |
 | 1.    | Deploy                                                    |      |
-|       | TOTAL                                                     | 12.5  |
+|       | TOTAL                                                     | 17.5  |
 
 
 
