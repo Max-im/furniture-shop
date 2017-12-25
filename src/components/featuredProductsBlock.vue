@@ -1,6 +1,6 @@
 <template> 
   <div class="featuredProducts">
-    <div class="container">
+    <div class="container featuredProducts__container">
       <titleComponent :data="titleData"></titleComponent>
       <productCarousel :data="carouselItems"></productCarousel>
 
@@ -97,6 +97,9 @@ export default {
   
 .featuredProducts{
   padding: 45px 0 40px 0;
+  &__container{
+    position: relative;
+  }
 }
 
 

@@ -1,6 +1,6 @@
 <template> 
   <div class="bestSellers">
-    <div class="container">
+    <div class="container bestSellers__container">
       <titleComponent :data="titleData"></titleComponent>
       <productCarousel :data="carouselItems"></productCarousel>
 
@@ -95,8 +95,11 @@ export default {
 
 <style lang="scss">
   
-.featuredProducts{
+.bestSellers{
   padding: 45px 0 40px 0;
+  &__container{
+    position: relative;
+  }
 }
 
 
