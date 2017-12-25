@@ -4,7 +4,7 @@
       <div class="productCard__contentBlock">
         
         <div class="productCard__imgBlock">
-          <img class="productCard__img" :src="data.img" alt="">
+          <img class="productCard__img" :src="data.img" alt="products">
         </div>
         
         <div class="productCard__textBlock">
@@ -164,7 +164,7 @@ export default {
     justify-content: space-between;
   }
   &__imgBlock{
-    width: 120px;
+    width: 100%;
   }
   &__btnBlock{
     margin: 5px 0 0 0;
@@ -184,11 +184,11 @@ export default {
 @media only screen and (min-width : 992px) {
 .productCard{
   &__contentBlock{
-    padding: 0px;
+    padding: 0px 0 25px 0;
     flex-direction: column;
   }
   &__imgBlock{
-    width: 180px;
+    // width: 180px;
   }
 }
 
@@ -203,7 +203,7 @@ export default {
 @media only screen and (min-width : 1200px) {
 .productCard{
   &__imgBlock{
-    width: 270px;
+    // width: 270px;
   }
   &__btn{
     padding: 15px;

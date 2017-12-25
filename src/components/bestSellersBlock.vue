@@ -1,12 +1,12 @@
 <template> 
-  <div class="featuredProducts">
+  <div class="bestSellers">
     <div class="container">
       <titleComponent :data="titleData"></titleComponent>
       <productCarousel :data="carouselItems"></productCarousel>
 
 
     </div>
-  </div><!-- featuredProducts -->
+  </div><!-- bestSellers -->
 </template>
 
 
@@ -17,59 +17,59 @@ import titleComponent from './titleComponent.vue';
 import productCarousel from './productCarouselComponent.vue';
 
 export default {
-  name: 'featuredProducts',
+  name: 'bestSellers',
   data () {
     return {
       titleData: {
-        mainText: 'featured',
-        slaveText: 'products'
+        mainText: 'best',
+        slaveText: 'sellers'
       },
       carouselItems: [
         { 
-          img: 'src/assets/prod1-1.jpg',
+          img: 'src/assets/prod2-1.jpg',
           title: 'kazens dimans', 
           stars: 5,
           price: 84 
         },
         { 
-          img: 'src/assets/prod1-2.jpg',
+          img: 'src/assets/prod2-2.jpg',
           title: 'gazenas mutre', 
           stars: 5,
           price: 65
         },
         { 
-          img: 'src/assets/prod1-3.jpg',
+          img: 'src/assets/prod2-3.jpg',
           title: 'gazenas mitra', 
           stars: 5,
           price: 84 
         },
         { 
-          img: 'src/assets/prod1-4.jpg',
+          img: 'src/assets/prod2-4.jpg',
           title: 'pizan matrme', 
           stars: 5,
           price: 50, 
           oldPrice: 53
         },
         { 
-          img: 'src/assets/prod1-1.jpg',
+          img: 'src/assets/prod2-1.jpg',
           title: 'kazens dimans', 
           stars: 5,
           price: 84 
         },
         { 
-          img: 'src/assets/prod1-2.jpg',
+          img: 'src/assets/prod2-2.jpg',
           title: 'gazenas mutre', 
           stars: 5,
           price: 65
         },
         { 
-          img: 'src/assets/prod1-3.jpg',
+          img: 'src/assets/prod2-3.jpg',
           title: 'gazenas mitra', 
           stars: 5,
           price: 84 
         },
         { 
-          img: 'src/assets/prod1-4.jpg',
+          img: 'src/assets/prod2-4.jpg',
           title: 'pizan matrme', 
           stars: 5,
           price: 50, 

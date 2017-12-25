@@ -12,6 +12,7 @@
       <popularBlock></popularBlock>
       <bannersBlock></bannersBlock>
       <featuredProductsBlock></featuredProductsBlock>
+      <bestSellersBlock></bestSellersBlock>
     </main>
 
   </div>
@@ -30,6 +31,7 @@ import sliderBlock from './components/sliderBlock.vue';
 import popularBlock from './components/popularBlock.vue';
 import bannersBlock from './components/bannersBlock.vue';
 import featuredProductsBlock from './components/featuredProductsBlock.vue';
+import bestSellersBlock from './components/bestSellersBlock.vue';
 
 
 
@@ -48,7 +50,8 @@ export default {
     sliderBlock,
     popularBlock,
     bannersBlock,
-    featuredProductsBlock
+    featuredProductsBlock,
+    bestSellersBlock
   }
 }
 </script>
