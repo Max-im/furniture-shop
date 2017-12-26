@@ -2,7 +2,10 @@
   <div class="bestSellers">
     <div class="container bestSellers__container">
       <titleComponent :data="titleData"></titleComponent>
-      <productCarousel :data="data"></productCarousel>
+      <productCarousel
+        :addItemToCard="addItemToCard" 
+        :data="data">
+      </productCarousel>
 
 
     </div>
@@ -30,7 +33,7 @@ export default {
     titleComponent,
     productCarousel
   },
-  props: ["data"]
+  props: ["data", 'addItemToCard']
 }
 
 

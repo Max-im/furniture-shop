@@ -348,7 +348,7 @@ export default {
 
 .cardHover{
   display: none;
-  z-index: 500;
+  z-index: 700;
   position: absolute;
   top: 100%;
   cursor: auto;

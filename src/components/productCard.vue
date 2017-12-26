@@ -59,7 +59,7 @@
           class="productCard__btn" 
           @mouseover="showTooltip"
           @mouseleave="hideTooltip"
-          @click.prevent="addToCard"
+          @click.prevent="addItemToCard(data.id)"
           data-tooltip="Add to card" 
           href="#">
           add to cart
@@ -112,13 +112,10 @@ export default {
 
     hideTooltip: function(e){
       document.querySelector('.tooltip').remove();
-    },
-
-    addToCard: function(){
-      console.log('add')
     }
+    
   },
-  props: ['data'] 
+  props: ['data', "addItemToCard"] 
 }
 
 

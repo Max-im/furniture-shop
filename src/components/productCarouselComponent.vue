@@ -3,7 +3,10 @@
       
     <ul class="productCarousel__list">
       <li class="productCarousel__item" v-for="item in data">
-        <productCard :data="item"></productCard>
+        <productCard 
+          :addItemToCard="addItemToCard"
+          :data="item">
+        </productCard>
         
       </li>
     </ul>
@@ -27,7 +30,7 @@ export default {
   components: {
     productCard
   },
-  props: ['data'],
+  props: ['data', "addItemToCard"],
   created: function(){
     $(document).ready(function(){
       $(".productCarousel__list").owlCarousel({

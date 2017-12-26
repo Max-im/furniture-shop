@@ -15,9 +15,15 @@
       <sliderBlock></sliderBlock>
       <popularBlock></popularBlock>
       <bannersBlock></bannersBlock>
-      <featuredProductsBlock :data="featureProducts"></featuredProductsBlock>
+      <featuredProductsBlock 
+        :addItemToCard="addItemToCard"
+        :data="featureProducts">
+      </featuredProductsBlock>
       <supportBlock></supportBlock>
-      <bestSellersBlock :data="bestSellers"></bestSellersBlock>
+      <bestSellersBlock 
+        :addItemToCard="addItemToCard"
+        :data="bestSellers">
+      </bestSellersBlock>
     </main>
 
   </div>
@@ -58,24 +64,28 @@ export default {
       ],
       featureProducts: [
         { 
+          id: '002-prod',
           img: 'src/assets/prod1-1.jpg',
           title: 'kazens dimans', 
           stars: 5,
           price: 84 
         },
         { 
+          id: '001-prod',
           img: 'src/assets/prod1-2.jpg',
           title: 'gazenas mutre', 
           stars: 5,
           price: 65
         },
         { 
+          id: '003-prod',
           img: 'src/assets/prod1-3.jpg',
           title: 'gazenas mitra', 
           stars: 5,
           price: 84 
         },
         { 
+          id: '004-prod',
           img: 'src/assets/prod1-4.jpg',
           title: 'pizan matrme', 
           stars: 5,
@@ -84,24 +94,28 @@ export default {
           flags: ['flag_sale', 'flag_new']
         },
         { 
+          id: '002-prod-1',
           img: 'src/assets/prod1-1.jpg',
           title: 'kazens dimans', 
           stars: 5,
           price: 84 
         },
         { 
+          id: '001-prod-1',
           img: 'src/assets/prod1-2.jpg',
           title: 'gazenas mutre', 
           stars: 5,
           price: 65
         },
         { 
+          id: '003-prod-1',
           img: 'src/assets/prod1-3.jpg',
           title: 'gazenas mitra', 
           stars: 5,
           price: 84 
         },
         { 
+          id: '004-prod-1',
           img: 'src/assets/prod1-4.jpg',
           title: 'pizan matrme', 
           stars: 5,
@@ -112,12 +126,14 @@ export default {
       ],
       bestSellers: [
         { 
+          id: 'b-005-prod',
           img: 'src/assets/prod2-1.jpg',
           title: 'auzam mipane', 
           stars: 5,
           price: 74 
         },
         { 
+          id: 'b-006-prod',
           img: 'src/assets/prod2-2.jpg',
           title: 'sazen kutemas', 
           stars: 5,
@@ -125,6 +141,7 @@ export default {
           price: 80
         },
         { 
+          id: 'b-007-prod',
           img: 'src/assets/prod2-3.jpg',
           title: 'dumas chume', 
           stars: 5,
@@ -132,18 +149,21 @@ export default {
           price: 90 
         },
         { 
+          id: 'b-008-prod',
           img: 'src/assets/prod2-4.jpg',
           title: 'amire tracemis', 
           stars: 5,
           price: 85, 
         },
         { 
+          id: 'b-005-prod-1',
           img: 'src/assets/prod2-1.jpg',
           title: 'auzam mipane', 
           stars: 5,
           price: 74 
         },
         { 
+          id: 'b-006-prod-1',
           img: 'src/assets/prod2-2.jpg',
           title: 'sazen kutemas', 
           stars: 5,
@@ -151,6 +171,7 @@ export default {
           price: 80
         },
         { 
+          id: 'b-007-prod-1',
           img: 'src/assets/prod2-3.jpg',
           title: 'dumas chume', 
           stars: 5,
@@ -158,6 +179,7 @@ export default {
           price: 90 
         },
         { 
+          id: 'b-008-prod-1',
           img: 'src/assets/prod2-4.jpg',
           title: 'amire tracemis', 
           stars: 5,
@@ -187,6 +209,7 @@ export default {
       });
       this.cardItem.splice(index, 1);
     },
+    
     changeProductsAmount: function(e, obj) {
       let index = ''; 
       const elem = e.target.value;
@@ -196,6 +219,25 @@ export default {
         }
       });
       this.cardItem[index].amount = elem;
+    },
+
+    addItemToCard: function(id){
+      if(this.cardItem.filter(item => item.id === id).length === 0){
+        const arr = id[0] === 'b' ? 'bestSellers' : 'featureProducts';
+        const element = this[arr].filter(item => item.id === id);
+        element[0].amount = 1;
+
+        this.cardItem.push(...element);
+      }
+      else{
+        let index = ''; 
+        this.cardItem.map((item, i) => {
+          if(item.id === id){
+            index = i;
+          }
+        });
+        this.cardItem[index].amount++;
+      }
     }
   }
 }
