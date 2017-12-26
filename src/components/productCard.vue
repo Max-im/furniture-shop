@@ -5,6 +5,13 @@
         
         <div class="productCard__imgBlock">
           <img class="productCard__img" :src="data.img" alt="products">
+          <a 
+            href="#" 
+            data-tooltip="Quick view"
+            @mouseover="showTooltip"
+            @mouseleave="hideTooltip"
+            class="productCard__view fa fa-search">
+          </a>
         </div>
         
         <div class="productCard__textBlock">
@@ -33,9 +40,30 @@
       </div>
       
       <div class="productCard__btnBlock">
-        <i class="fa fa-retweet" aria-hidden="true"></i>
-        <a class="productCard__btn" href="#">add to cart</a>
-        <i class="fa fa-heart" aria-hidden="true"></i>
+        <a 
+          class="productCard__btns" 
+          @mouseover="showTooltip"
+          @mouseleave="hideTooltip"
+          data-tooltip="Compare" 
+          href="#">
+          <i class="fa fa-retweet" aria-hidden="true"></i>
+        </a>
+        <a 
+          class="productCard__btn" 
+          @mouseover="showTooltip"
+          @mouseleave="hideTooltip"
+          data-tooltip="Add to card" 
+          href="#">
+          add to cart
+        </a>
+        <a 
+          class="productCard__btns" 
+          @mouseover="showTooltip"
+          @mouseleave="hideTooltip"
+          data-tooltip="Add to wishlist" 
+          href="#">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+        </a>
       </div>
 
   </div><!-- productCard -->
@@ -54,9 +82,31 @@ export default {
 
     }
   },
-  props: ['data'] 
+  methods: {
+    showTooltip: function(e){
+      const target = e.target.closest('a');
+      const tooltipText = e.target.closest('a').getAttribute('data-tooltip');
+      if(!tooltipText) return;
+      if(document.querySelector('.tooltip'))return;
 
- 
+
+      const coord = target.getBoundingClientRect();
+
+      const elem = document.createElement('span');
+      elem.classList.add('tooltip');
+      elem.style.top = window.pageYOffset + coord.top - 35 +'px';
+      elem.innerHTML = tooltipText;
+      document.body.appendChild(elem);
+      const elemWidth = elem.offsetWidth;
+      const targetWidth = target.offsetWidth;
+      elem.style.left = window.pageXOffset + coord.left - elemWidth / 2 + targetWidth / 2 +'px';
+    },
+
+    hideTooltip: function(e){
+      document.querySelector('.tooltip').remove();
+    }
+  },
+  props: ['data'] 
 }
 
 
@@ -74,13 +124,67 @@ export default {
 
 .productCard{
   border: 1px solid #ddd; 
+  position: relative;
+
+  &:hover{
+    .productCard__title{
+      color: #beae59;
+    }
+    .productCard__btn{
+      color: #beae59;
+    }
+    .productCard__view{
+      display: block;
+    }
+    .productCard__imgBlock{
+      &:before{
+        display: block;
+      }
+    }
+  }
   &__contentBlock{
     display: flex;
     padding: 5px 5px 5px 0;
     justify-content: space-between;
   }
   &__imgBlock{
+    position: relative;
     width: 80px;
+    &:before{
+      content: '';
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.5);
+    }
+  }
+  &__view{
+    font-family: 'FontAwesome';
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+    display: none;
+    z-index: 15;
+    &:hover{
+      background: $accent;
+    }
   }
   &__img{
     width: 100%;
@@ -112,25 +216,68 @@ export default {
     margin: 5px 0 0 0;
     border-top: 1px solid #ddd;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     .fa{
       font-size: 14px;
       color: #999;
-      display: block;
-      width: 15%;
       text-align: center;
       cursor: pointer;
     }
   }
+  &__btns{
+      height: 100%;
+      width: 15%;
+      position: relative;
+      display: block;
+      text-align: center;
+      line-height: 25px;
+      &:hover{
+        background: $accent;
+        .fa{
+          color: #fff;
+        }
+      }
+  }
   &__btn{
+    position: relative;
     font-size: 14px;
     text-transform: uppercase;
     color: $accent;
     font-weight: 900;
-    padding: 5px;
+    line-height: 25px;
     width: 70%;
     text-align: center;
+    &:hover{
+      background: $accent;
+      color: #fff !important;
+    }
+  }
+}
+
+.tooltip{
+  position: absolute;
+  z-index: 100;
+  font-size: 12px;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  border-radius: 20px;
+  top: -40px;
+  font-weight: normal;
+  text-transform: none;
+  white-space: nowrap;
+  line-height: 25px;
+  padding: 0 5px;
+  &:after{
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    bottom: -5px;
+    left: calc(50% - 5px);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0,0,0,.5);
   }
 }
   
@@ -171,7 +318,15 @@ export default {
     display: flex;
   }
   &__btn{
-    padding: 10px;
+    line-height: 30px;
+  }
+  &__btns{
+    line-height: 30px;
+  }
+  &__view{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
   }
 }
 
@@ -206,7 +361,10 @@ export default {
     // width: 270px;
   }
   &__btn{
-    padding: 15px;
+    line-height: 40px;
+  }
+  &__btns{
+    line-height: 40px;
   }
 }
 

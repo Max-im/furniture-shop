@@ -84,6 +84,10 @@ $accent: #279cc7;
     font-size: 0;
     display: none;
   } 
+
+  .owl-dots{
+    height: 0;
+  }
 }
 
 
@@ -112,7 +116,14 @@ $accent: #279cc7;
 .productCarousel{
   .owl-prev, .owl-next{
     display: block;
+    &:hover{
+      &:before{
+        background: $accent;
+        color: #fff;
+      }
+    }
     &:before{
+      background: #fff;
       position: absolute;
       width: 35px;
       height: 35px;
@@ -127,13 +138,11 @@ $accent: #279cc7;
   .owl-prev{
     &:before{
       left: 0;
-      border-left: 1px solid rgba(0,0,0,.0);
     }
   } 
   .owl-next{
     &:before{
       right: 0;
-      border-right: 1px solid rgba(0,0,0,.0);
     }
   } 
 }

@@ -27,53 +27,55 @@ export default {
       carouselItems: [
         { 
           img: 'src/assets/prod2-1.jpg',
-          title: 'kazens dimans', 
+          title: 'auzam mipane', 
           stars: 5,
-          price: 84 
+          price: 74 
         },
         { 
           img: 'src/assets/prod2-2.jpg',
-          title: 'gazenas mutre', 
+          title: 'sazen kutemas', 
           stars: 5,
-          price: 65
+          oldPrice: 84,
+          price: 80
         },
         { 
           img: 'src/assets/prod2-3.jpg',
-          title: 'gazenas mitra', 
+          title: 'dumas chume', 
           stars: 5,
-          price: 84 
+          oldPrice: 99,
+          price: 90 
         },
         { 
           img: 'src/assets/prod2-4.jpg',
-          title: 'pizan matrme', 
+          title: 'amire tracemis', 
           stars: 5,
-          price: 50, 
-          oldPrice: 53
+          price: 85, 
         },
         { 
           img: 'src/assets/prod2-1.jpg',
-          title: 'kazens dimans', 
+          title: 'auzam mipane', 
           stars: 5,
-          price: 84 
+          price: 74 
         },
         { 
           img: 'src/assets/prod2-2.jpg',
-          title: 'gazenas mutre', 
+          title: 'sazen kutemas', 
           stars: 5,
-          price: 65
+          oldPrice: 84,
+          price: 80
         },
         { 
           img: 'src/assets/prod2-3.jpg',
-          title: 'gazenas mitra', 
+          title: 'dumas chume', 
           stars: 5,
-          price: 84 
+          oldPrice: 99,
+          price: 90 
         },
         { 
           img: 'src/assets/prod2-4.jpg',
-          title: 'pizan matrme', 
+          title: 'amire tracemis', 
           stars: 5,
-          price: 50, 
-          oldPrice: 53
+          price: 85, 
         }
       ]
     }
