@@ -45,14 +45,14 @@
       <div class="mixBlock__node mixBlock__node_cardWrap myCard">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <h4 class="myCard__title">my card</h4>
-        <p class="myCard__itemAmount">{{cardItems.length}} item (s)</p>
+        <p class="myCard__itemAmount">{{data.length}} item (s)</p>
       
 
         <div 
           class="myCard__hoverBlock cardHover">
           <div class="cardHover__topLine">
             {{ 
-              cardItems.length === 0 ? 
+              data.length === 0 ? 
               'There is no products' : 
               'Recently added item(s):' 
             }}
@@ -60,7 +60,7 @@
           
 
           <div 
-            v-for="item in cardItems" 
+            v-for="item in data" 
             class="cardHover__item">
             
             <img 
@@ -113,7 +113,7 @@
           </div> <!-- item -->
           
 
-          <div v-if='cardItems.length !== 0'>
+          <div v-if='data.length !== 0'>
             
             <div class="cardHover__subtotalBlock">
               <span class="cardHover__subtotal">Card subtotal:</span> 
@@ -149,24 +149,13 @@ export default {
   name: 'mixBlock',
   data () {
     return {
-      isFocused: false,
-      cardItems: [
-        {
-          id: '001-prod',
-          img:'src/assets/prod-min-2.jpg', 
-          title: 'gazenas mutare', 
-          stars: 5,
-          price: 65, 
-          rev: 2, 
-          amount: 1
-        }
-      ]
+      isFocused: false
     }
   },
   computed:{
     cardSubtotal: function(){
       let result = 0;
-      this.cardItems.forEach(item => {
+      this.data.forEach(item => {
         result += item.price * item.amount;
       });
       return result;
@@ -178,29 +167,9 @@ export default {
     },
     searchBlur: function(){
       this.isFocused = false;
-    },
-    removeItemFromCard: function(id) {
-      let index = ''; 
-      this.cardItems.map((item, i) => {
-        if(item.id === id){
-          index = i;
-        }
-      });
-      this.cardItems.splice(index, 1);
-    },
-    changeProductsAmount: function(e, obj) {
-      let index = ''; 
-      const elem = e.target.value;
-      this.cardItems.map((item, i) => {
-        if(item.id === obj.id){
-          index = i;
-        }
-      });
-
-      
-      this.cardItems[index].amount = elem;
     }
-  }
+  },
+  props: ["data", "removeItemFromCard", "changeProductsAmount"]
 
  
 }

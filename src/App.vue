@@ -3,7 +3,11 @@
 
     <header class="header">
       <topLineBlock></topLineBlock>
-      <mixBlock></mixBlock>
+      <mixBlock 
+        :removeItemFromCard="removeItemFromCard"
+        :changeProductsAmount="changeProductsAmount"
+        :data="cardItem">
+      </mixBlock>
       <mainMenu></mainMenu>
     </header>
 
@@ -11,9 +15,9 @@
       <sliderBlock></sliderBlock>
       <popularBlock></popularBlock>
       <bannersBlock></bannersBlock>
-      <featuredProductsBlock></featuredProductsBlock>
+      <featuredProductsBlock :data="featureProducts"></featuredProductsBlock>
       <supportBlock></supportBlock>
-      <bestSellersBlock></bestSellersBlock>
+      <bestSellersBlock :data="bestSellers"></bestSellersBlock>
     </main>
 
   </div>
@@ -41,7 +45,125 @@ export default {
   name: 'app',
   data () {
     return {
-      
+      cardItem: [
+        {
+          id: '001-prod',
+          img:'src/assets/prod-min-2.jpg', 
+          title: 'gazenas mutare', 
+          stars: 5,
+          price: 65, 
+          rev: 2, 
+          amount: 1
+        }
+      ],
+      featureProducts: [
+        { 
+          img: 'src/assets/prod1-1.jpg',
+          title: 'kazens dimans', 
+          stars: 5,
+          price: 84 
+        },
+        { 
+          img: 'src/assets/prod1-2.jpg',
+          title: 'gazenas mutre', 
+          stars: 5,
+          price: 65
+        },
+        { 
+          img: 'src/assets/prod1-3.jpg',
+          title: 'gazenas mitra', 
+          stars: 5,
+          price: 84 
+        },
+        { 
+          img: 'src/assets/prod1-4.jpg',
+          title: 'pizan matrme', 
+          stars: 5,
+          price: 50, 
+          oldPrice: 53,
+          flags: ['flag_sale', 'flag_new']
+        },
+        { 
+          img: 'src/assets/prod1-1.jpg',
+          title: 'kazens dimans', 
+          stars: 5,
+          price: 84 
+        },
+        { 
+          img: 'src/assets/prod1-2.jpg',
+          title: 'gazenas mutre', 
+          stars: 5,
+          price: 65
+        },
+        { 
+          img: 'src/assets/prod1-3.jpg',
+          title: 'gazenas mitra', 
+          stars: 5,
+          price: 84 
+        },
+        { 
+          img: 'src/assets/prod1-4.jpg',
+          title: 'pizan matrme', 
+          stars: 5,
+          price: 50, 
+          oldPrice: 53,
+          flags: ['flag_sale', 'flag_new']
+        }
+      ],
+      bestSellers: [
+        { 
+          img: 'src/assets/prod2-1.jpg',
+          title: 'auzam mipane', 
+          stars: 5,
+          price: 74 
+        },
+        { 
+          img: 'src/assets/prod2-2.jpg',
+          title: 'sazen kutemas', 
+          stars: 5,
+          oldPrice: 84,
+          price: 80
+        },
+        { 
+          img: 'src/assets/prod2-3.jpg',
+          title: 'dumas chume', 
+          stars: 5,
+          oldPrice: 99,
+          price: 90 
+        },
+        { 
+          img: 'src/assets/prod2-4.jpg',
+          title: 'amire tracemis', 
+          stars: 5,
+          price: 85, 
+        },
+        { 
+          img: 'src/assets/prod2-1.jpg',
+          title: 'auzam mipane', 
+          stars: 5,
+          price: 74 
+        },
+        { 
+          img: 'src/assets/prod2-2.jpg',
+          title: 'sazen kutemas', 
+          stars: 5,
+          oldPrice: 84,
+          price: 80
+        },
+        { 
+          img: 'src/assets/prod2-3.jpg',
+          title: 'dumas chume', 
+          stars: 5,
+          oldPrice: 99,
+          price: 90 
+        },
+        { 
+          img: 'src/assets/prod2-4.jpg',
+          title: 'amire tracemis', 
+          stars: 5,
+          price: 85, 
+        }
+      ]
     }
   },
   components: {
@@ -54,6 +176,27 @@ export default {
     featuredProductsBlock,
     supportBlock,
     bestSellersBlock
+  },
+  methods: {
+    removeItemFromCard: function(id) {
+      let index = ''; 
+      this.cardItem.map((item, i) => {
+        if(item.id === id){
+          index = i;
+        }
+      });
+      this.cardItem.splice(index, 1);
+    },
+    changeProductsAmount: function(e, obj) {
+      let index = ''; 
+      const elem = e.target.value;
+      this.cardItem.map((item, i) => {
+        if(item.id === obj.id){
+          index = i;
+        }
+      });
+      this.cardItem[index].amount = elem;
+    }
   }
 }
 </script>

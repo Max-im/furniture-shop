@@ -2,7 +2,7 @@
   <div class="featuredProducts">
     <div class="container featuredProducts__container">
       <titleComponent :data="titleData"></titleComponent>
-      <productCarousel :data="carouselItems"></productCarousel>
+      <productCarousel :data="data"></productCarousel>
 
 
     </div>
@@ -23,67 +23,14 @@ export default {
       titleData: {
         mainText: 'featured',
         slaveText: 'products'
-      },
-      carouselItems: [
-        { 
-          img: 'src/assets/prod1-1.jpg',
-          title: 'kazens dimans', 
-          stars: 5,
-          price: 84 
-        },
-        { 
-          img: 'src/assets/prod1-2.jpg',
-          title: 'gazenas mutre', 
-          stars: 5,
-          price: 65
-        },
-        { 
-          img: 'src/assets/prod1-3.jpg',
-          title: 'gazenas mitra', 
-          stars: 5,
-          price: 84 
-        },
-        { 
-          img: 'src/assets/prod1-4.jpg',
-          title: 'pizan matrme', 
-          stars: 5,
-          price: 50, 
-          oldPrice: 53,
-          flags: ['flag_sale', 'flag_new']
-        },
-        { 
-          img: 'src/assets/prod1-1.jpg',
-          title: 'kazens dimans', 
-          stars: 5,
-          price: 84 
-        },
-        { 
-          img: 'src/assets/prod1-2.jpg',
-          title: 'gazenas mutre', 
-          stars: 5,
-          price: 65
-        },
-        { 
-          img: 'src/assets/prod1-3.jpg',
-          title: 'gazenas mitra', 
-          stars: 5,
-          price: 84 
-        },
-        { 
-          img: 'src/assets/prod1-4.jpg',
-          title: 'pizan matrme', 
-          stars: 5,
-          price: 50, 
-          oldPrice: 53,
-          flags: ['flag_sale', 'flag_new']
-        }
-      ]
+      }
     }
   },
   components: {
     titleComponent,
     productCarousel
-  }
+  },
+  props: ["data"]
 }
 
 

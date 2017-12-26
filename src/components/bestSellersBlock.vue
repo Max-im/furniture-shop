@@ -2,7 +2,7 @@
   <div class="bestSellers">
     <div class="container bestSellers__container">
       <titleComponent :data="titleData"></titleComponent>
-      <productCarousel :data="carouselItems"></productCarousel>
+      <productCarousel :data="data"></productCarousel>
 
 
     </div>
@@ -23,67 +23,14 @@ export default {
       titleData: {
         mainText: 'best',
         slaveText: 'sellers'
-      },
-      carouselItems: [
-        { 
-          img: 'src/assets/prod2-1.jpg',
-          title: 'auzam mipane', 
-          stars: 5,
-          price: 74 
-        },
-        { 
-          img: 'src/assets/prod2-2.jpg',
-          title: 'sazen kutemas', 
-          stars: 5,
-          oldPrice: 84,
-          price: 80
-        },
-        { 
-          img: 'src/assets/prod2-3.jpg',
-          title: 'dumas chume', 
-          stars: 5,
-          oldPrice: 99,
-          price: 90 
-        },
-        { 
-          img: 'src/assets/prod2-4.jpg',
-          title: 'amire tracemis', 
-          stars: 5,
-          price: 85, 
-        },
-        { 
-          img: 'src/assets/prod2-1.jpg',
-          title: 'auzam mipane', 
-          stars: 5,
-          price: 74 
-        },
-        { 
-          img: 'src/assets/prod2-2.jpg',
-          title: 'sazen kutemas', 
-          stars: 5,
-          oldPrice: 84,
-          price: 80
-        },
-        { 
-          img: 'src/assets/prod2-3.jpg',
-          title: 'dumas chume', 
-          stars: 5,
-          oldPrice: 99,
-          price: 90 
-        },
-        { 
-          img: 'src/assets/prod2-4.jpg',
-          title: 'amire tracemis', 
-          stars: 5,
-          price: 85, 
-        }
-      ]
+      }
     }
   },
   components: {
     titleComponent,
     productCarousel
-  }
+  },
+  props: ["data"]
 }
 
 
