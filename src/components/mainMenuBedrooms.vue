@@ -16,12 +16,16 @@
     </ul>  
     
     <div class="bedroomsMenu__imgBlock">
-      <productCard
-        class="bedroomsMenu__productCard"
-        v-for="item in cardList"
-        :key="item.title"
-        :data="item"
-      ></productCard>
+      <div 
+        class="bedroomsMenu__productsCardWrap"
+        v-for="item in cardList">
+        <productCard
+          class="bedroomsMenu__productCard"
+          
+          :key="item.title"
+          :data="item"
+        ></productCard>
+      </div>
     </div>
   </div><!-- bedroomsMenu -->
 </template>
@@ -153,6 +157,9 @@ export default {
   &__productCard{
     margin: 0 20px 0px 0;
   }
+  &__productsCardWrap{
+    width: 200px; 
+  }
 }
 
 }
@@ -174,6 +181,9 @@ export default {
   }
   &__productCard{
     margin: 0 30px 0px 0;
+  }
+  &__productsCardWrap{
+    width: 270px; 
   }
 }
 

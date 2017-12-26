@@ -89,7 +89,9 @@
                 </span>
               </div>
 
-              <div class="cardHover__priceBlock">
+              <div 
+
+                class="cardHover__priceBlock">
                 <div class="price cardHover__price">{{item.price | currency}}</div>
                 <label class="cardHover__inpWrap">Qty 
                   <input 
@@ -152,15 +154,6 @@ export default {
       isFocused: false
     }
   },
-  computed:{
-    cardSubtotal: function(){
-      let result = 0;
-      this.data.forEach(item => {
-        result += item.price * item.amount;
-      });
-      return result;
-    }
-  },
   methods: {
     searchFocus: function(){
       this.isFocused = true;
@@ -169,7 +162,7 @@ export default {
       this.isFocused = false;
     }
   },
-  props: ["data", "removeItemFromCard", "changeProductsAmount"]
+  props: ["data", "removeItemFromCard", "changeProductsAmount", "cardSubtotal"]
 
  
 }
@@ -348,7 +341,7 @@ export default {
 
 .cardHover{
   display: none;
-  z-index: 700;
+  z-index: 1000;
   position: absolute;
   top: 100%;
   cursor: auto;

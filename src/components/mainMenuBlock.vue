@@ -137,7 +137,7 @@ export default {
     background: rgba(22,22,22,.9);
     position: absolute;
     width: 100%;
-    z-index: 400;
+    z-index: 800;
     &__container{
       display: flex;
       flex-wrap: wrap;
@@ -168,7 +168,7 @@ export default {
       top: 100%;
       width: 200px;
       background: rgba(22,22,22,.9);
-      .fa{
+      .fa-home{
         font-size: 24px;
         display: block;
         line-height: 14px;

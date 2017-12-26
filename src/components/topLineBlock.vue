@@ -59,7 +59,7 @@ export default {
     return {
       money: [{ name:'UAH', img: false}, {name: 'USD', img: false}, {name:'EUR', img: false}],
       lang: [
-        { name:'English', img: 'src/assets/flag-en.png'}, 
+        {name:'English', img: 'src/assets/flag-en.png'}, 
         {name: 'French', img:'src/assets/flag-fr.png'}, 
         {name:'German', img:'src/assets/flag-gr.png'},
         {name: 'Argentina', img:'src/assets/flag-ag.png'}, 
@@ -137,7 +137,7 @@ export default {
       left: -7px;
       top: 35px;
       width: 100%;
-      z-index: 10;
+      z-index: 900;
     }
     &__subItem{
       display: flex;

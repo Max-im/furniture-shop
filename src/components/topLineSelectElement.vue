@@ -73,7 +73,12 @@ export default {
 <style lang="scss">
 
  
-
+.topLine{
+  &__flag{
+    width: 16px;
+    height: 14px
+  }
+}
 
 
  /* Large Devices, Wide Screens */

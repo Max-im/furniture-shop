@@ -6,6 +6,7 @@
       <mixBlock 
         :removeItemFromCard="removeItemFromCard"
         :changeProductsAmount="changeProductsAmount"
+        :cardSubtotal="cardSubtotal"
         :data="cardItem">
       </mixBlock>
       <mainMenu></mainMenu>
@@ -198,6 +199,15 @@ export default {
     featuredProductsBlock,
     supportBlock,
     bestSellersBlock
+  },
+  computed:{
+    cardSubtotal: function(){
+      let result = 0;
+      this.cardItem.forEach(item => {
+        result += item.price * item.amount;
+      });
+      return result;
+    }
   },
   methods: {
     removeItemFromCard: function(id) {
