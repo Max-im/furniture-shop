@@ -50,18 +50,20 @@
 | ----: | --------------------------------------------------------  | ----: |
 | 1.    | Consider the project, create repo, readme.md              | 2     |
 | 2.    | Environment init, structured the project                  | 0.5   |
-| 3.    | Prepare assets for the projects                           | 1     |
+| 3.    | Prepare assets for the projects                           | 2     |
 | 4.    | Create topLineBlock component                             | 3     |
 | 5.    | Create mixBlock component                                 | 6     |
 | 6.    | Create mainMenu component                                 | 6     |
 | 7.    | Create slider component                                   | 2     |
-| 8.    | Create popular component                                  |  4.5    |
-| 8.    | Create banners component                                  |  0.5    |
-| 1.    | Create SOME-PAGE component                                |      |
-| 1.    | Code review, refactoring                                  |      |
-| 1.    | Add microdata, correct readme                             |      |
-| 1.    | Deploy                                                    |      |
-|       | TOTAL                                                     | 17.5  |
+| 8.    | Create popular component                                  |  5    |
+| 8.    | Create banners component                                  |  1    |
+| 8.    | Create carousel components                                |  5    |
+| 8.    | Create support component                                  |  1    |
+| 8.    | Implement addProducts, changeTotalPrice functions         |  3    |
+| 1.    | Code review, refactoring                                  |   3   |
+| 1.    | Add microdata, correct readme                             |   1   |
+| 1.    | Deploy                                                    |   0.5   |
+|       | TOTAL                                                     | 41  |
 
 
 

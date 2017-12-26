@@ -6,7 +6,7 @@
       <mixBlock 
         :removeItemFromCard="removeItemFromCard"
         :changeProductsAmount="changeProductsAmount"
-        :cardSubtotal="cardSubtotal"
+        :totalSum="totalSum"
         :data="cardItem">
       </mixBlock>
       <mainMenu></mainMenu>
@@ -52,6 +52,7 @@ export default {
   name: 'app',
   data () {
     return {
+      totalSum: 0,
       cardItem: [
         {
           id: '001-prod',
@@ -200,14 +201,8 @@ export default {
     supportBlock,
     bestSellersBlock
   },
-  computed:{
-    cardSubtotal: function(){
-      let result = 0;
-      this.cardItem.forEach(item => {
-        result += item.price * item.amount;
-      });
-      return result;
-    }
+  created: function(){
+    this.totalSumCount();
   },
   methods: {
     removeItemFromCard: function(id) {
@@ -229,6 +224,15 @@ export default {
         }
       });
       this.cardItem[index].amount = elem;
+
+      this.totalSumCount();
+    },
+
+    totalSumCount: function(){
+      this.totalSum = 0;
+      this.cardItem.forEach(item => {
+        this.totalSum += item.price * item.amount;
+      });
     },
 
     addItemToCard: function(id){
@@ -248,6 +252,7 @@ export default {
         });
         this.cardItem[index].amount++;
       }
+      this.totalSumCount();
     }
   }
 }

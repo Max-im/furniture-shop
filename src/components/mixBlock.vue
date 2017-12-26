@@ -119,7 +119,7 @@
             
             <div class="cardHover__subtotalBlock">
               <span class="cardHover__subtotal">Card subtotal:</span> 
-              <span class="price price_blue">{{ cardSubtotal | currency }}</span>
+              <span class="price price_blue">{{ totalSum | currency }}</span>
             </div>
             
             <div class="cardHover__btnBlock">
@@ -162,7 +162,7 @@ export default {
       this.isFocused = false;
     }
   },
-  props: ["data", "removeItemFromCard", "changeProductsAmount", "cardSubtotal"]
+  props: ["data", "removeItemFromCard", "changeProductsAmount", "totalSum"]
 
  
 }
@@ -428,6 +428,9 @@ export default {
         color: darken(#c5c5c5, 20%);
       }
     }
+  }
+  &__subtotalBlock{
+    display: flex;
   }
   &__subtotal{
     width: 82px;
