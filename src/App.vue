@@ -227,9 +227,8 @@ body{
   text-transform: uppercase;
   font-size: 12px;
   padding: 10px;
-  right: 0;
-  top: 0;
   color: #fff;
+  z-index: 100;
   &:after{
     content: '';
     position: absolute;
@@ -241,12 +240,33 @@ body{
     font-weight: 900;
     border-radius: 5px;
     &:after{
+      content: '';
       border-bottom: 20px solid transparent;
       border-right: 20px solid transparent;
       left: 0;
       bottom: -10px;
       content: '';
       border-left: 10px solid #ff5722;
+    }
+    &:before{
+      content: 'sale'
+    }
+  }
+  &_new{
+    background: $accent;
+    font-weight: 900;
+    border-radius: 5px;
+    &:after{
+      content: '';
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid transparent;
+      right: 0;
+      bottom: -10px;
+      content: '';
+      border-right: 10px solid $accent;
+    }
+    &:before{
+      content: 'new'
     }
   }
   

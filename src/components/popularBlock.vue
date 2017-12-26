@@ -33,10 +33,10 @@
         <div class="products__main">
 
           <div 
-            v-if="products.list[products.main].oldPrice"
-            class="flag products__flag"
-            :class="products.list[products.main].flag">
-            sale
+            v-if="products.list[products.main].flags" 
+            v-for='item in products.list[products.main].flags' 
+            class="flag" 
+            :class="item">
           </div>
 
           <div class="products__main_top">
@@ -223,7 +223,7 @@ export default {
             title: 'auzan mipane', 
             stars: 3, 
             price: 80, 
-            flag: 'flag_sale',
+            flags: ['flag_sale'],
             oldPrice: 95,
             sale: true,
             timer: "2018-12-26"
@@ -233,7 +233,6 @@ export default {
             title: 'kazens dimans', 
             stars: 5, 
             price: 80,
-            falg: '',
             sale: false,
             timer: "2018-02-25"
           },
@@ -242,7 +241,6 @@ export default {
             title: 'gazenas mutare', 
             stars: 5, 
             price: 65,
-            falg: '',
             sale: false,
             timer: "2018-01-05"
           },
@@ -251,7 +249,6 @@ export default {
             title: 'gazenas mitra', 
             stars: 5, 
             price: 84,
-            falg: '',
             sale: false,
             timer: "2018-01-20"
           }
@@ -503,10 +500,8 @@ export default {
     font-weight: normal;
     margin: 4px 0 0 0;
   }
-  &__flag{
-    top: 10px;
-    right: 10px;
-  }
+  
+
 }
 
 
@@ -567,7 +562,7 @@ export default {
     display: flex;
     padding: 20px 5px;
   }
-  &__flag{
+  .flag_sale{
     top: 30px;
     right: 30px;
   }

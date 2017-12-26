@@ -48,7 +48,8 @@ export default {
           title: 'pizan matrme', 
           stars: 5,
           price: 50, 
-          oldPrice: 53
+          oldPrice: 53,
+          flags: ['flag_sale', 'flag_new']
         },
         { 
           img: 'src/assets/prod1-1.jpg',
@@ -73,7 +74,8 @@ export default {
           title: 'pizan matrme', 
           stars: 5,
           price: 50, 
-          oldPrice: 53
+          oldPrice: 53,
+          flags: ['flag_sale', 'flag_new']
         }
       ]
     }

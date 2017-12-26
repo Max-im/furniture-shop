@@ -2,6 +2,13 @@
   <div class="productCard">
 
       <div class="productCard__contentBlock">
+
+        <div 
+          v-if="data.flags" 
+          v-for='item in data.flags' 
+          class="flag" 
+          :class="item">
+        </div>
         
         <div class="productCard__imgBlock">
           <img class="productCard__img" :src="data.img" alt="products">
@@ -52,6 +59,7 @@
           class="productCard__btn" 
           @mouseover="showTooltip"
           @mouseleave="hideTooltip"
+          @click.prevent="addToCard"
           data-tooltip="Add to card" 
           href="#">
           add to cart
@@ -104,6 +112,10 @@ export default {
 
     hideTooltip: function(e){
       document.querySelector('.tooltip').remove();
+    },
+
+    addToCard: function(){
+      console.log('add')
     }
   },
   props: ['data'] 
@@ -253,6 +265,16 @@ export default {
       color: #fff !important;
     }
   }
+
+  .flag_sale{
+    top: 10px;
+    right: 10px;
+  }
+  .flag_new{
+    top: 10px;
+    left: 10px;
+  }
+
 }
 
 .tooltip{
