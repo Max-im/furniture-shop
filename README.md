@@ -38,7 +38,7 @@
 ## __Technologies:__
  - vue-cli ![cli][cliImg];
  - Vue ![vue][vueImg] / ES6 ![ES6][ES6Img];
- - jQuery ![jQuery][jQueryImg] / owl-carousel / lodash ![lodash][lodashImg] / moment ![moment][momentImg];
+ - jQuery ![jQuery][jQueryImg] / owl-carousel / moment ![moment][momentImg];
  - HTML5 ![HTML][HTMLImg] / BEM ![bem][bemImg] / OpenGraph ![openGraph][openGraphImg];
  - Sass (Scss) ![sass][sassImg] / CSS3 ![CSS3][cssImg] / mobile-first;
 
