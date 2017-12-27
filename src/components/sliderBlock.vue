@@ -37,6 +37,7 @@
 
 
 <script>
+import owlCarousel from 'owl.carousel';
 
 export default {
   name: 'slider',

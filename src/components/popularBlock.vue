@@ -210,16 +210,16 @@ export default {
   data () {
     return {
       dayDealsList: [
-        { img: '/src/assets/section1.jpg', link: '#', alt: 'living room' },
-        { img: '/src/assets/section2.jpg', link: '#', alt: 'kitchen' },
-        { img: '/src/assets/section3.jpg', link: '#', alt: 'work place' },
-        { img: '/src/assets/section4.jpg', link: '#', alt: 'wardrobe' }
+        { img: './src/assets/section1.jpg', link: '#', alt: 'living room' },
+        { img: './src/assets/section2.jpg', link: '#', alt: 'kitchen' },
+        { img: './src/assets/section3.jpg', link: '#', alt: 'work place' },
+        { img: './src/assets/section4.jpg', link: '#', alt: 'wardrobe' }
       ],
       products: {
         main: 0,
         list: [
           {
-            img: '/src/assets/prod-min-0.jpg', 
+            img: './src/assets/prod-min-0.jpg', 
             title: 'auzan mipane', 
             stars: 3, 
             price: 80, 
@@ -229,7 +229,7 @@ export default {
             timer: "2018-12-26"
           },
           {
-            img: '/src/assets/prod-min-1.jpg', 
+            img: './src/assets/prod-min-1.jpg', 
             title: 'kazens dimans', 
             stars: 5, 
             price: 80,
@@ -237,7 +237,7 @@ export default {
             timer: "2018-02-25"
           },
           {
-            img: '/src/assets/prod-min-2.jpg', 
+            img: './src/assets/prod-min-2.jpg', 
             title: 'gazenas mutare', 
             stars: 5, 
             price: 65,
@@ -245,7 +245,7 @@ export default {
             timer: "2018-01-05"
           },
           {
-            img: '/src/assets/prod-min-3.jpg', 
+            img: './src/assets/prod-min-3.jpg', 
             title: 'gazenas mitra', 
             stars: 5, 
             price: 84,
